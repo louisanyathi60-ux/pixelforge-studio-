@@ -1,0 +1,20 @@
+.demo-buttons {
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.demo-buttons .demo {
+  padding: 20px 40px;
+  background: #6c63ff;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.demo-buttons .demo:hover {
+  transform: scale(1.05);
+}
