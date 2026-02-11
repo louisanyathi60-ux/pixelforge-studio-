@@ -1,40 +1,63 @@
-body {
+/* Reset */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
-  text-align: center;
-  background: #f5f7fa;
-  color: #222;
 }
 
+/* Navbar */
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  width: 110px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #6c63ff;
+}
+
+/* Hero Section */
 .hero {
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #6c63ff, #ff7eb3);
-  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  background: #f4f4f4;
 }
 
-.logo {
-  width: 120px;
-  margin-bottom: 15px;
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 1.2rem;
+.hero h1 {
+  font-size: 36px;
   margin-bottom: 20px;
 }
 
-.services {
-  background: #e7e9f1;
-  padding: 50px 20px;
+.hero p {
+  font-size: 18px;
+  color: #555;
 }
 
-.services ul {
-  list-style: none;
-  padding: 0;
+/* Section */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}  padding: 0;
 }
 
 .services li {
