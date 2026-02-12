@@ -253,3 +253,25 @@ footer {
     font-size: 18px;
   }
 }
+.social-contact {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.social-contact h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #fff; /* or #333 depending on your background */
+}
+
+.social-links a {
+  color: #7b5cff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #5e3dc1;
+}
