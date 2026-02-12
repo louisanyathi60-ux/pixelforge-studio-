@@ -30,6 +30,25 @@
   padding: 80px 20px;
   background: linear-gradient(to right, #f8cdda, #fbd3e9);
 }
+.hero {
+  text-align: center;
+  padding: 140px 20px;
+  background: linear-gradient(135deg, #ffe3f0, #fff);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: #e27aa7;
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+  opacity: 0.15;
+}
 
 .cta h2 {
   margin-bottom: 25px;
