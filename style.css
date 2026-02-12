@@ -275,3 +275,19 @@ footer {
 .social-links a:hover {
   color: #5e3dc1;
 }
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 15px;
+}
+
+.social-links a {
+  font-size: 28px;
+  color: #7b5cff;  /* Match your theme */
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #5e3dc1;
+}
