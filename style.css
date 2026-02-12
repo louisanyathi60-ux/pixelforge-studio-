@@ -1,161 +1,36 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-  background: #fdf6f9;
-  color: #333;
-}
-
-/* NAVBAR */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 8%;
-  background: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-}
-
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-  color: #e27aa7;
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.navbar ul li a:hover,
-.active {
-  color: #e27aa7;
-  border-bottom: 2px solid #e27aa7;
-}
-
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 120px 20px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-.btn {
-  background: #e27aa7;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #d45c90;
-}
-
-/* PRICING */
-.pricing {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+/* FEATURES SECTION */
+.features {
   padding: 80px 20px;
+  text-align: center;
+  background: white;
 }
 
-.price-card {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  width: 260px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.features h2 {
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+
+.feature-box {
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 15px;
+  background: #fdf6f9;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   transition: 0.3s;
 }
 
-.price-card:hover {
-  transform: translateY(-10px);
+.feature-box:hover {
+  transform: translateY(-5px);
 }
 
-.price-card h3 {
-  color: #e27aa7;
-  margin-bottom: 15px;
-}
-
-.price-card p {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-/* CONTACT */
-.contact-container {
-  max-width: 500px;
-  margin: 80px auto;
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.contact-container input,
-.contact-container textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
-
-.contact-container button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  background: #e27aa7;
-  color: white;
-  border-radius: 25px;
-  cursor: pointer;
-}
-
-.contact-container button:hover {
-  background: #d45c90;
-}
-
-/* FOOTER */
-footer {
-  background: #fff;
+/* CALL TO ACTION */
+.cta {
   text-align: center;
-  padding: 30px;
-  margin-top: 60px;
-  box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
-  font-size: 14px;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #f8cdda, #fbd3e9);
 }
 
-/* ANIMATION */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.cta h2 {
+  margin-bottom: 25px;
 }
