@@ -1,0 +1,22 @@
+.demo-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+.demo-btn a {
+  text-decoration: none;
+  background: #e27aa7;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.demo-btn a:hover {
+  background: #c65e8c;
+  transform: scale(1.05);
+}
