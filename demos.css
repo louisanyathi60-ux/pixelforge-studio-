@@ -1,23 +1,39 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
 .demos {
     padding: 80px 20px;
     text-align: center;
-    background-color: #f4f6f9;
+}
+
+.demos h2 {
+    font-size: 32px;
+    margin-bottom: 50px;
 }
 
 .demo-grid {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
     flex-wrap: wrap;
-    margin-top: 40px;
 }
 
 .demo-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.08);
     padding: 30px;
-    border-radius: 12px;
+    border-radius: 15px;
     width: 300px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.demo-card:hover {
+    transform: translateY(-10px);
 }
 
 .demo-card h3 {
@@ -26,15 +42,15 @@
 
 .demo-btn {
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 20px;
     padding: 12px 24px;
-    background-color: #0a1f44;
+    background: #00c6ff;
     color: white;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: 0.3s ease;
 }
 
 .demo-btn:hover {
-    background-color: #00b4d8;
+    background: #0072ff;
 }
