@@ -21,72 +21,106 @@
   </ul>
   </nav>
 
-  <!-- PixelForge Founding Client Promotion Widget -->
 <div class="promo-widget">
-  <h2>Founding Client Launch Offer</h2>
+  <h2>🎉 Founding Client Launch Offer 🎉</h2>
   <p id="promo-text">3 spots available for first clients!</p>
   <button id="claim-btn">Claim a Spot</button>
 </div>
 
 <script>
-let spots = 3; // total founding client spots
-
+let spots = 3;
 const button = document.getElementById('claim-btn');
 const promoText = document.getElementById('promo-text');
 
 button.addEventListener('click', () => {
-  if(spots > 0) {
-    // Open WhatsApp with pre-filled message
+  if(spots > 0){
+    // WhatsApp link
     window.open("https://wa.me/27602950755?text=Hi,%20I%20want%20to%20claim%20my%20PixelForge%20Studio%20founding%20client%20spot!", "_blank");
 
-    // Reduce spots count
+    // Celebrate
+    promoText.classList.add('celebrate');
+    setTimeout(() => promoText.classList.remove('celebrate'), 1000);
+
+    // Update spots
     spots--;
-    if(spots === 0) {
-      promoText.textContent = "All founding client spots have been claimed!";
+    if(spots === 0){
+      promoText.textContent = "🎊 All founding client spots have been claimed! 🎊";
       button.disabled = true;
       button.style.background = "#555";
       button.style.cursor = "not-allowed";
     } else {
-      promoText.textContent = `${spots} spot(s) left for first clients!`;
+      promoText.textContent = `🎉 ${spots} spot(s) left for first clients! 🎉`;
     }
   }
 });
 </script>
 
 <style>
-  .promo-widget {
-    background: linear-gradient(135deg, #1a1a3c, #2e0066); /* navy-purple gradient */
-    color: #fff;
-    padding: 20px;
-    max-width: 400px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    margin: 20px auto;
-  }
-  .promo-widget h2 {
-    margin-bottom: 10px;
-    font-size: 24px;
-  }
-  .promo-widget p {
-    margin-bottom: 20px;
-    font-size: 16px;
-  }
-  .promo-widget button {
-    background: #00bfff;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .promo-widget button:hover {
-    background: #009acc;
-  }
-</style>
+.promo-widget {
+  background: linear-gradient(135deg, #1a1a3c, #2e0066);
+  color: #fff;
+  padding: 25px;
+  max-width: 600px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden;
+}
 
+.promo-widget h2 {
+  margin-bottom: 15px;
+  font-size: 26px;
+  animation: bounce 1s infinite alternate;
+}
+
+.promo-widget p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.promo-widget button {
+  background: #ff5ca2;
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+  transition: all 0.3s ease;
+}
+
+.promo-widget button:hover {
+  background: #e04890;
+}
+
+/* Celebrate animation */
+.celebrate {
+  animation: flash 0.8s;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 10px #ff5ca2; }
+  50% { transform: scale(1.05); box-shadow: 0 0 20px #ff80b8; }
+  100% { transform: scale(1); box-shadow: 0 0 10px #ff5ca2; }
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes flash {
+  0% { color: #fff; text-shadow: 0 0 5px #fff; }
+  50% { color: #ffe600; text-shadow: 0 0 20px #ffe600, 0 0 40px #ffe600; }
+  100% { color: #fff; text-shadow: 0 0 5px #fff; }
+}
+</style>
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
