@@ -2,196 +2,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PixelForge Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* --- GENERAL RESET --- */
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: #0f1123; color: #fff; overflow-x: hidden; }
-        a { text-decoration:none; color:inherit; }/* --- NAVBAR --- */
-    nav { display:flex; justify-content:space-between; align-items:center; padding:20px 50px; background: rgba(15,17,35,0.8); backdrop-filter: blur(10px); position:sticky; top:0; z-index:999; }
-    nav .logo { font-size:1.8em; font-weight:700; color:#9b59b6; }
-    nav ul { display:flex; list-style:none; gap:30px; }
-    nav ul li a:hover { color:#f1c40f; }
+    <title>PixelForge Studio</title><!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-    /* --- HERO --- */
-    .hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; height:90vh; background: linear-gradient(135deg, rgba(155,89,182,0.7), rgba(52,152,219,0.7)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?fit=crop&w=1950&q=80') no-repeat center/cover; }
-    .hero h1 { font-size:3em; margin-bottom:20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.6); }
-    .hero p { font-size:1.2em; margin-bottom:30px; }
-    .hero .btn { padding:15px 35px; background: rgba(155,89,182,0.8); border:none; border-radius:12px; color:#fff; font-weight:600; cursor:pointer; transition: all 0.3s ease; }
-    .hero .btn:hover { background:#9b59b6; box-shadow:0 0 20px #9b59b6; }
+<!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    /* --- SECTIONS --- */
-    section { padding:80px 50px; }
-    .section-title { font-size:2.2em; font-weight:700; margin-bottom:50px; text-align:center; color:#f1c40f; }
+<!-- Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
 
-    /* --- PROJECTS --- */
-    .projects { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:40px; }
-    .project-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); border-radius:15px; overflow:hidden; transition:all 0.3s ease; }
-    .project-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(255,255,255,0.2); }
-    .project-card img { width:100%; height:180px; object-fit:cover; }
-    .project-card .card-content { padding:20px; }
-    .project-card h3 { font-size:1.3em; margin-bottom:10px; color:#9b59b6; }
-    .project-card a { display:inline-block; margin-top:10px; padding:10px 20px; background:#f1c40f; color:#0f1123; font-weight:600; border-radius:10px; transition:0.3s; }
-    .project-card a:hover { background:#f39c12; }
+<style>
+    /* Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background: #0f1123;
+        color: #fff;
+        overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
 
-    /* --- PRICING --- */
-    .pricing { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:40px; }
-    .price-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); border-radius:15px; padding:30px; text-align:center; transition:all 0.3s ease; }
-    .price-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(255,255,255,0.2); }
-    .price-card h3 { font-size:1.5em; margin-bottom:15px; color:#9b59b6; }
-    .price-card p { margin-bottom:20px; }
-    .price-card span { display:block; font-size:1.8em; font-weight:700; color:#f1c40f; margin-bottom:20px; }
-    .price-card .btn { padding:10px 25px; background:#9b59b6; border:none; border-radius:10px; color:#fff; font-weight:600; cursor:pointer; transition:0.3s; }
-    .price-card .btn:hover { background:#8e44ad; box-shadow:0 0 15px #9b59b6; }
+    /* Navbar */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 50px;
+        background: rgba(15, 17, 35, 0.95);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+    .nav-links a:hover {
+        color: #9b59b6;
+    }
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+    }
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 4px;
+        transition: all 0.3s ease;
+    }
+    @media screen and (max-width: 768px) {
+        .nav-links { display: none; flex-direction: column; background: #0f1123; position: absolute; top: 60px; right: 0; width: 200px; padding: 20px; }
+        .nav-links.active { display: flex; }
+        .hamburger { display: flex; }
+    }
 
-    /* --- SOCIAL ICONS --- */
-    .social-icons { display:flex; justify-content:center; gap:30px; margin-top:20px; }
-    .social-icons a { font-size:1.5em; color:#fff; transition:0.3s; }
-    .social-icons a:hover { color:#9b59b6; }
+    /* Header */
+    header {
+        text-align: center;
+        padding: 100px 20px;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        background-blend-mode: overlay;
+        color: #fff;
+    }
+    header h1 { font-size: 3em; margin-bottom: 20px; }
+    header p { font-size: 1.3em; margin-bottom: 30px; }
+    .btn-primary { background: #9b59b6; padding: 12px 25px; border-radius: 5px; color: #fff; font-weight: bold; cursor: pointer; transition: all 0.3s ease; }
+    .btn-primary:hover { background: #8e44ad; }
 
-    /* --- CONTACT / SUBSCRIBE --- */
-    .subscribe { text-align:center; margin-top:30px; }
-    .subscribe input { padding:15px 20px; border-radius:12px; border:none; margin-right:10px; width:250px; max-width:80%; }
-    .subscribe button { padding:15px 25px; border:none; border-radius:12px; background:#f1c40f; font-weight:600; cursor:pointer; transition:0.3s; }
-    .subscribe button:hover { background:#f39c12; }
+    /* Projects Section */
+    .projects { padding: 80px 20px; text-align: center; }
+    .projects h2 { font-size: 2.5em; margin-bottom: 40px; }
+    .project-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+    .project-card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; width: 300px; transition: all 0.3s ease; }
+    .project-card:hover { background: rgba(255,255,255,0.15); transform: translateY(-5px); }
+    .project-card img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
+    .project-card h3 { margin-bottom: 10px; }
+    .project-card .btn-demo { background: #2575fc; color: #fff; padding: 10px 20px; border-radius: 5px; }
+    .project-card .btn-demo:hover { background: #1a5ed3; }
 
-    /* --- FOOTER --- */
-    footer { background: rgba(15,17,35,0.9); padding:40px 50px; text-align:center; }
-    footer p { margin-bottom:15px; }
+    /* Pricing Section */
+    .pricing { padding: 80px 20px; text-align: center; background: #14182f; }
+    .pricing h2 { font-size: 2.5em; margin-bottom: 40px; }
+    .pricing-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+    .pricing-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; width: 280px; transition: all 0.3s ease; }
+    .pricing-card:hover { background: rgba(255,255,255,0.15); transform: translateY(-5px); }
+    .pricing-card h3 { margin-bottom: 15px; font-size: 1.5em; }
+    .pricing-card p { margin-bottom: 10px; }
+    .pricing-card .price { font-size: 1.7em; font-weight: bold; color: #9b59b6; margin-bottom: 15px; }
+
+    /* Subscribe Section */
+    .subscribe { padding: 80px 20px; text-align: center; }
+    .subscribe input[type="email"] { padding: 10px 15px; width: 300px; border-radius: 5px; border: none; margin-right: 10px; }
+    .subscribe .btn-subscribe { padding: 10px 20px; border-radius: 5px; background: #9b59b6; color: #fff; cursor: pointer; }
+    .subscribe .btn-subscribe:hover { background: #8e44ad; }
+
+    /* Footer */
+    footer { padding: 40px 20px; text-align: center; background: #0f1123; }
+    footer a { margin: 0 10px; font-size: 1.5em; }
+
 </style>
 
 </head>
-<body><!-- NAVBAR -->
+<body><!-- Navbar -->
 <nav>
-    <div class="logo">PixelForge Studio</div>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="logo">PIXELFORGE</div>
+    <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#subscribe">Subscribe</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
+<!-- Header -->
+<header id="home">
     <h1>PixelForge Studio</h1>
     <p>Premium Websites, eCommerce, Logo & Branding — Affordable & Trustworthy</p>
-    <button class="btn" onclick="subscribeClick()">Subscribe Now</button>
-</section>
+    <button class="btn-primary" onclick="document.getElementById('subscribe').scrollIntoView({behavior: 'smooth'})">Subscribe Now</button>
+</header>
 
-<!-- PROJECTS -->
-<section id="projects">
-    <h2 class="section-title">Our Projects</h2>
-    <div class="projects">
-        <div class="project-card">
-            <img src="https://via.placeholder.com/400x200?text=Salon+Website" alt="Salon Demo">
-            <div class="card-content">
-                <h3>Salon Website</h3>
-                <p>Responsive, bright, and professional design for beauty salons.</p>
-                <a href="#">View Demo</a>
-            </div>
+<!-- Projects Section -->
+<section class="projects" id="projects">
+    <h2>Our Projects</h2>
+    <div class="project-cards">
+        <div class="project-card" data-aos="fade-up">
+            <img src="https://via.placeholder.com/300x200.png?text=Salon+Demo" alt="Salon Demo">
+            <h3>Salon Website</h3>
+            <button class="btn-demo" onclick="window.open('https://louisanyathi60-ux.github.io/salon-demo','_blank')">View Live Demo</button>
         </div>
-        <div class="project-card">
-            <img src="https://via.placeholder.com/400x200?text=Restaurant+Website" alt="Restaurant Demo">
-            <div class="card-content">
-                <h3>Restaurant Website</h3>
-                <p>Modern, mobile-friendly site with menu & reservation features.</p>
-                <a href="#">View Demo</a>
-            </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://via.placeholder.com/300x200.png?text=Restaurant+Demo" alt="Restaurant Demo">
+            <h3>Restaurant Website</h3>
+            <button class="btn-demo" onclick="window.open('https://louisanyathi60-ux.github.io/restaurant-demo','_blank')">View Live Demo</button>
         </div>
-        <div class="project-card">
-            <img src="https://via.placeholder.com/400x200?text=Consultant+Website" alt="Consultant Demo">
-            <div class="card-content">
-                <h3>Consultant Website</h3>
-                <p>Professional design for consulting & business services.</p>
-                <a href="#">View Demo</a>
-            </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="https://via.placeholder.com/300x200.png?text=Consultant+Demo" alt="Consultant Demo">
+            <h3>Consultant Website</h3>
+            <button class="btn-demo" onclick="window.open('https://louisanyathi60-ux.github.io/consultant-demo','_blank')">View Live Demo</button>
         </div>
     </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing">
-    <h2 class="section-title">Pricing</h2>
-    <div class="pricing">
-        <div class="price-card">
+<!-- Pricing Section -->
+<section class="pricing" id="pricing">
+    <h2>Pricing</h2>
+    <div class="pricing-cards">
+        <div class="pricing-card" data-aos="fade-up">
             <h3>1-Page Website</h3>
-            <p>Simple landing page, mobile-friendly</p>
-            <span>R500+</span>
-            <button class="btn">Get Started</button>
+            <p class="price">R500+</p>
+            <p>Perfect for a personal or small business page.</p>
         </div>
-        <div class="price-card">
-            <h3>Small Business Site</h3>
-            <p>3–5 pages, responsive, basic SEO, social links</p>
-            <span>R1,000+</span>
-            <button class="btn">Get Started</button>
+        <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>Multi-Page Website</h3>
+            <p class="price">R1500+</p>
+            <p>Full business website with 5+ pages.</p>
         </div>
-        <div class="price-card">
-            <h3>Professional Business Site</h3>
-            <p>5–10 pages, responsive, SEO, social media integration, animations</p>
-            <span>R2,000+</span>
-            <button class="btn">Get Started</button>
+        <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+            <h3>eCommerce / WordPress / Shopify</h3>
+            <p class="price">R3000+</p>
+            <p>Professional online stores including hosting setup.</p>
         </div>
-        <div class="price-card">
-            <h3>Logo Design & Branding</h3>
-            <p>Custom logo, color palette, typography, brand guide</p>
-            <span>R1,500+</span>
-            <button class="btn">Get Started</button>
-        </div>
-        <div class="price-card">
-            <h3>WordPress eCommerce</h3>
-            <p>WooCommerce setup, 10–20 products, basic payment integration</p>
-            <span>R3,500+</span>
-            <button class="btn">Get Started</button>
-        </div>
-        <div class="price-card">
-            <h3>Shopify Store</h3>
-            <p>Shopify setup, 10–30 products, payment & shipping setup</p>
-            <span>R4,500+</span>
-            <button class="btn">Get Started</button>
-        </div>
-        <div class="price-card">
-            <h3>Premium eCommerce</h3>
-            <p>Unlimited pages/products, advanced SEO, animations, security</p>
-            <span>R7,000+</span>
-            <button class="btn">Get Started</button>
+        <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+            <h3>Logo & Branding</h3>
+            <p class="price">R1000+</p>
+            <p>Complete brand identity package for your business.</p>
         </div>
     </div>
 </section>
 
-<!-- CONTACT / SUBSCRIBE -->
-<section id="contact">
-    <h2 class="section-title">Subscribe & Contact</h2>
-    <div class="subscribe">
-        <input type="email" id="email" placeholder="Enter your email">
-        <button onclick="subscribeClick()">Subscribe / Login</button>
-    </div>
-    <div class="social-icons">
-        <a href="https://www.facebook.com/profile.php?id=61587602161378" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/studio_pixelforge?igsh=eGlhanB1Ym5iOGgw" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/0602950755" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    </div>
+<!-- Subscribe Section -->
+<section class="subscribe" id="subscribe">
+    <h2>Subscribe for Updates</h2>
+    <p>Get the latest projects and offers straight to your inbox.</p>
+    <input type="email" placeholder="Enter your email" id="subscriberEmail">
+    <button class="btn-subscribe" onclick="subscribe()">Subscribe</button>
 </section>
 
-<!-- FOOTER -->
-<footer>
-    <p>&copy; 2026 PixelForge Studio. All Rights Reserved.</p>
+<!-- Footer -->
+<footer id="contact">
+    <p>Connect with us:</p>
+    <a href="https://www.facebook.com/profile.php?id=61587602161378" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/studio_pixelforge?igsh=eGlhanB1Ym5iOGgw" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/0602950755" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <p>&copy; 2026 PixelForge Studio</p>
 </footer>
 
+<!-- AOS Animation Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    function subscribeClick() {
-        const emailInput = document.getElementById('email');
-        const email = emailInput.value;
+    AOS.init({ duration: 1200 });
+
+    // Hamburger Menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Email Subscribe (Placeholder: store in localStorage)
+    function subscribe() {
+        const email = document.getElementById('subscriberEmail').value;
         if(email) {
+            let subscribers = JSON.parse(localStorage.getItem('subscribers')) || [];
+            subscribers.push(email);
+            localStorage.setItem('subscribers', JSON.stringify(subscribers));
             alert('Thanks for subscribing!');
-            emailInput.value = '';
+            document.getElementById('subscriberEmail').value = '';
+            console.log('Subscribers:', subscribers);
         } else {
-            alert('Please enter your email');
+            alert('Please enter a valid email');
         }
     }
 </script>
 
 </body>
-</html>
+    </html>
