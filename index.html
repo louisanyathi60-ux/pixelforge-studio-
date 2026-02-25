@@ -1,116 +1,62 @@
 <!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PixelForge Studio</title><!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PixelForge Studio - Premium Web Design</title><!-- Google Fonts --><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"><!-- Font Awesome for icons --><script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script><!-- AOS Animation Library --><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><style>
+/* Base Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; background: #0f1123; color: #fff; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
 
-<!-- AOS Animation Library -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+/* Navbar */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background: rgba(15,17,35,0.95); position: sticky; top:0; z-index:100; }
+.nav-links { display: flex; gap: 30px; }
+.nav-links a:hover { color: #9b59b6; }
+.hamburger { display: none; flex-direction: column; cursor: pointer; }
+.hamburger div { width: 25px; height: 3px; background-color: #fff; margin: 4px; transition: all 0.3s ease; }
+@media screen and (max-width:768px){ .nav-links{ display:none; flex-direction:column; background:#0f1123; position:absolute; top:60px; right:0; width:200px; padding:20px; } .nav-links.active{ display:flex; } .hamburger{ display:flex; } }
 
-<!-- Font Awesome for icons -->
-<script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
+/* Header */
+header { text-align:center; padding:120px 20px; background: linear-gradient(135deg,#6a11cb,#2575fc); background-blend-mode: overlay; color:#fff; backdrop-filter: blur(10px); }
+header h1{ font-size:3em; margin-bottom:20px; }
+header p{ font-size:1.3em; margin-bottom:30px; }
+.btn-primary{ background: linear-gradient(45deg,#9b59b6,#8e44ad); padding:15px 30px; border-radius:10px; color:#fff; font-weight:bold; cursor:pointer; box-shadow:0 5px 15px rgba(155,89,182,0.5); transition: all 0.3s ease; }
+.btn-primary:hover{ transform: translateY(-3px); box-shadow:0 10px 20px rgba(155,89,182,0.7); }
 
-<style>
-    /* Base Styles */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    body {
-        font-family: 'Montserrat', sans-serif;
-        background: #0f1123;
-        color: #fff;
-        overflow-x: hidden;
-    }
-    a { text-decoration: none; color: inherit; }
+/* Projects Section */
+.projects{ padding:80px 20px; text-align:center; }
+.projects h2{ font-size:2.5em; margin-bottom:40px; }
+.project-cards{ display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+.project-card{ background: rgba(255,255,255,0.05); padding:20px; border-radius:20px; width:320px; backdrop-filter: blur(8px); transition: all 0.3s ease; }
+.project-card:hover{ transform: translateY(-5px); background: rgba(255,255,255,0.15); }
+.project-card img{ width:100%; border-radius:15px; margin-bottom:15px; }
+.project-card h3{ margin-bottom:10px; }
+.project-card .btn-demo{ background: linear-gradient(45deg,#2575fc,#1a5ed3); color:#fff; padding:12px 25px; border-radius:10px; font-weight:bold; cursor:pointer; box-shadow:0 5px 15px rgba(37,117,252,0.5); transition: all 0.3s ease; }
+.project-card .btn-demo:hover{ transform: translateY(-3px); box-shadow:0 10px 20px rgba(37,117,252,0.7); }
 
-    /* Navbar */
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 50px;
-        background: rgba(15, 17, 35, 0.95);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
-    .nav-links {
-        display: flex;
-        gap: 30px;
-    }
-    .nav-links a:hover {
-        color: #9b59b6;
-    }
-    .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-    }
-    .hamburger div {
-        width: 25px;
-        height: 3px;
-        background-color: #fff;
-        margin: 4px;
-        transition: all 0.3s ease;
-    }
-    @media screen and (max-width: 768px) {
-        .nav-links { display: none; flex-direction: column; background: #0f1123; position: absolute; top: 60px; right: 0; width: 200px; padding: 20px; }
-        .nav-links.active { display: flex; }
-        .hamburger { display: flex; }
-    }
+/* Pricing Section */
+.pricing{ padding:80px 20px; text-align:center; background:#14182f; }
+.pricing h2{ font-size:2.5em; margin-bottom:40px; }
+.pricing-cards{ display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+.pricing-card{ background: rgba(255,255,255,0.05); padding:30px; border-radius:20px; width:300px; backdrop-filter: blur(8px); transition: all 0.3s ease; }
+.pricing-card:hover{ transform: translateY(-5px); background: rgba(255,255,255,0.15); }
+.pricing-card h3{ margin-bottom:15px; font-size:1.5em; }
+.pricing-card p{ margin-bottom:10px; }
+.pricing-card .price{ font-size:1.7em; font-weight:bold; color:#9b59b6; margin-bottom:15px; }
 
-    /* Header */
-    header {
-        text-align: center;
-        padding: 100px 20px;
-        background: linear-gradient(135deg, #6a11cb, #2575fc);
-        background-blend-mode: overlay;
-        color: #fff;
-    }
-    header h1 { font-size: 3em; margin-bottom: 20px; }
-    header p { font-size: 1.3em; margin-bottom: 30px; }
-    .btn-primary { background: #9b59b6; padding: 12px 25px; border-radius: 5px; color: #fff; font-weight: bold; cursor: pointer; transition: all 0.3s ease; }
-    .btn-primary:hover { background: #8e44ad; }
+/* Subscribe Section */
+.subscribe{ padding:80px 20px; text-align:center; }
+.subscribe h2{ font-size:2em; margin-bottom:20px; }
+.subscribe input[type="email"]{ padding:15px 20px; width:320px; border-radius:10px; border:none; margin-right:10px; }
+.subscribe .btn-subscribe{ padding:15px 25px; border-radius:10px; background: linear-gradient(45deg,#9b59b6,#8e44ad); color:#fff; cursor:pointer; font-weight:bold; box-shadow:0 5px 15px rgba(155,89,182,0.5); transition: all 0.3s ease; }
+.subscribe .btn-subscribe:hover{ transform: translateY(-3px); box-shadow:0 10px 20px rgba(155,89,182,0.7); }
 
-    /* Projects Section */
-    .projects { padding: 80px 20px; text-align: center; }
-    .projects h2 { font-size: 2.5em; margin-bottom: 40px; }
-    .project-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
-    .project-card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; width: 300px; transition: all 0.3s ease; }
-    .project-card:hover { background: rgba(255,255,255,0.15); transform: translateY(-5px); }
-    .project-card img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
-    .project-card h3 { margin-bottom: 10px; }
-    .project-card .btn-demo { background: #2575fc; color: #fff; padding: 10px 20px; border-radius: 5px; }
-    .project-card .btn-demo:hover { background: #1a5ed3; }
-
-    /* Pricing Section */
-    .pricing { padding: 80px 20px; text-align: center; background: #14182f; }
-    .pricing h2 { font-size: 2.5em; margin-bottom: 40px; }
-    .pricing-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
-    .pricing-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; width: 280px; transition: all 0.3s ease; }
-    .pricing-card:hover { background: rgba(255,255,255,0.15); transform: translateY(-5px); }
-    .pricing-card h3 { margin-bottom: 15px; font-size: 1.5em; }
-    .pricing-card p { margin-bottom: 10px; }
-    .pricing-card .price { font-size: 1.7em; font-weight: bold; color: #9b59b6; margin-bottom: 15px; }
-
-    /* Subscribe Section */
-    .subscribe { padding: 80px 20px; text-align: center; }
-    .subscribe input[type="email"] { padding: 10px 15px; width: 300px; border-radius: 5px; border: none; margin-right: 10px; }
-    .subscribe .btn-subscribe { padding: 10px 20px; border-radius: 5px; background: #9b59b6; color: #fff; cursor: pointer; }
-    .subscribe .btn-subscribe:hover { background: #8e44ad; }
-
-    /* Footer */
-    footer { padding: 40px 20px; text-align: center; background: #0f1123; }
-    footer a { margin: 0 10px; font-size: 1.5em; }
-
-</style>
-
-</head>
-<body><!-- Navbar -->
-<nav>
+/* Footer */
+footer{ padding:40px 20px; text-align:center; background:#0f1123; }
+footer a{ margin:0 15px; font-size:1.5em; transition: all 0.3s ease; }
+footer a:hover{ color:#9b59b6; transform: scale(1.2); }
+</style></head>
+<body><!-- Navbar --><nav>
     <div class="logo">PIXELFORGE</div>
     <div class="nav-links" id="navLinks">
         <a href="#home">Home</a>
@@ -124,45 +70,36 @@
         <div></div>
         <div></div>
     </div>
-</nav>
-
-<!-- Header -->
-<header id="home">
+</nav><!-- Header --><header id="home">
     <h1>PixelForge Studio</h1>
     <p>Premium Websites, eCommerce, Logo & Branding — Affordable & Trustworthy</p>
-    <button class="btn-primary" onclick="document.getElementById('subscribe').scrollIntoView({behavior: 'smooth'})">Subscribe Now</button>
-</header>
-
-<!-- Projects Section -->
-<section class="projects" id="projects">
+    <button class="btn-primary" onclick="document.getElementById('subscribe').scrollIntoView({behavior:'smooth'})">Subscribe Now</button>
+</header><!-- Projects Section --><section class="projects" id="projects">
     <h2>Our Projects</h2>
     <div class="project-cards">
         <div class="project-card" data-aos="fade-up">
-            <img src="https://via.placeholder.com/300x200.png?text=Salon+Demo" alt="Salon Demo">
+            <img src="https://via.placeholder.com/320x200.png?text=Salon+Demo" alt="Salon Demo">
             <h3>Salon Website</h3>
             <button class="btn-demo" onclick="window.open('https://louisanyathi60-ux.github.io/salon-demo','_blank')">View Live Demo</button>
         </div>
         <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-            <img src="https://via.placeholder.com/300x200.png?text=Restaurant+Demo" alt="Restaurant Demo">
+            <img src="https://via.placeholder.com/320x200.png?text=Restaurant+Demo" alt="Restaurant Demo">
             <h3>Restaurant Website</h3>
             <button class="btn-demo" onclick="window.open('https://louisanyathi60-ux.github.io/restaurant-demo','_blank')">View Live Demo</button>
         </div>
         <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-            <img src="https://via.placeholder.com/300x200.png?text=Consultant+Demo" alt="Consultant Demo">
+            <img src="https://via.placeholder.com/320x200.png?text=Consultant+Demo" alt="Consultant Demo">
             <h3>Consultant Website</h3>
             <button class="btn-demo" onclick="window.open('https://louisanyathi60-ux.github.io/consultant-demo','_blank')">View Live Demo</button>
         </div>
     </div>
-</section>
-
-<!-- Pricing Section -->
-<section class="pricing" id="pricing">
+</section><!-- Pricing Section --><section class="pricing" id="pricing">
     <h2>Pricing</h2>
     <div class="pricing-cards">
         <div class="pricing-card" data-aos="fade-up">
             <h3>1-Page Website</h3>
             <p class="price">R500+</p>
-            <p>Perfect for a personal or small business page.</p>
+            <p>Perfect for personal or small business pages.</p>
         </div>
         <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
             <h3>Multi-Page Website</h3>
@@ -180,52 +117,38 @@
             <p>Complete brand identity package for your business.</p>
         </div>
     </div>
-</section>
-
-<!-- Subscribe Section -->
-<section class="subscribe" id="subscribe">
+</section><!-- Subscribe Section --><section class="subscribe" id="subscribe">
     <h2>Subscribe for Updates</h2>
     <p>Get the latest projects and offers straight to your inbox.</p>
     <input type="email" placeholder="Enter your email" id="subscriberEmail">
     <button class="btn-subscribe" onclick="subscribe()">Subscribe</button>
-</section>
-
-<!-- Footer -->
-<footer id="contact">
+</section><!-- Footer --><footer id="contact">
     <p>Connect with us:</p>
     <a href="https://www.facebook.com/profile.php?id=61587602161378" target="_blank"><i class="fab fa-facebook"></i></a>
     <a href="https://www.instagram.com/studio_pixelforge?igsh=eGlhanB1Ym5iOGgw" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://wa.me/0602950755" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <p>&copy; 2026 PixelForge Studio</p>
-</footer>
+</footer><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script>
+AOS.init({ duration: 1200 });
 
-<!-- AOS Animation Script -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init({ duration: 1200 });
+// Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
 
-    // Hamburger Menu
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    // Email Subscribe (Placeholder: store in localStorage)
-    function subscribe() {
-        const email = document.getElementById('subscriberEmail').value;
-        if(email) {
-            let subscribers = JSON.parse(localStorage.getItem('subscribers')) || [];
-            subscribers.push(email);
-            localStorage.setItem('subscribers', JSON.stringify(subscribers));
-            alert('Thanks for subscribing!');
-            document.getElementById('subscriberEmail').value = '';
-            console.log('Subscribers:', subscribers);
-        } else {
-            alert('Please enter a valid email');
-        }
-    }
-</script>
-
-</body>
-    </html>
+// Email Subscribe (Local Storage placeholder)
+function subscribe() {
+    const email = document.getElementById('subscriberEmail').value;
+    if(email){
+        let subscribers = JSON.parse(localStorage.getItem('subscribers')) || [];
+        subscribers.push(email);
+        localStorage.setItem('subscribers', JSON.stringify(subscribers));
+        alert('Thanks for subscribing!');
+        document.getElementById('subscriberEmail').value='';
+        console.log('Subscribers:',subscribers);
+    } else { alert('Please enter a valid email'); }
+}
+</script></body>
+                                                                                                                                    </html>
