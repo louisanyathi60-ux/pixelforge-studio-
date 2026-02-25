@@ -306,3 +306,14 @@ footer {
 .social-icons a:hover {
   color: #ffffff;
   }
+footer a {
+    margin: 0 20px;
+    font-size: 2em;        /* bigger icons */
+    color: #ff4dff;        /* bright purple-pink */
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    transform: scale(1.4);
+    color: #ffffff;        /* hover glow effect */
+}
