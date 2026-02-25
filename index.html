@@ -1,209 +1,197 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PixelForge Studio</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelForge Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- GENERAL RESET --- */
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: #0f1123; color: #fff; overflow-x: hidden; }
+        a { text-decoration:none; color:inherit; }/* --- NAVBAR --- */
+    nav { display:flex; justify-content:space-between; align-items:center; padding:20px 50px; background: rgba(15,17,35,0.8); backdrop-filter: blur(10px); position:sticky; top:0; z-index:999; }
+    nav .logo { font-size:1.8em; font-weight:700; color:#9b59b6; }
+    nav ul { display:flex; list-style:none; gap:30px; }
+    nav ul li a:hover { color:#f1c40f; }
 
-<style>
-/* Base Styles */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Montserrat', sans-serif; background:#0f1123; color:#fff; overflow-x:hidden; }
-a { text-decoration:none; color:inherit; }
-.container { width:90%; max-width:1200px; margin:auto; }
+    /* --- HERO --- */
+    .hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; height:90vh; background: linear-gradient(135deg, rgba(155,89,182,0.7), rgba(52,152,219,0.7)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?fit=crop&w=1950&q=80') no-repeat center/cover; }
+    .hero h1 { font-size:3em; margin-bottom:20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.6); }
+    .hero p { font-size:1.2em; margin-bottom:30px; }
+    .hero .btn { padding:15px 35px; background: rgba(155,89,182,0.8); border:none; border-radius:12px; color:#fff; font-weight:600; cursor:pointer; transition: all 0.3s ease; }
+    .hero .btn:hover { background:#9b59b6; box-shadow:0 0 20px #9b59b6; }
 
-/* Glassy Sections */
-.glass { background: rgba(255,255,255,0.05); border-radius:20px; backdrop-filter: blur(20px) saturate(180%); border:1px solid rgba(255,255,255,0.15); padding:60px 30px; margin:40px 0; position:relative; overflow:hidden; }
+    /* --- SECTIONS --- */
+    section { padding:80px 50px; }
+    .section-title { font-size:2.2em; font-weight:700; margin-bottom:50px; text-align:center; color:#f1c40f; }
 
-/* Floating Shapes */
-.floating-shape { position:absolute; border-radius:50%; opacity:0.15; animation: float 8s ease-in-out infinite; z-index:0; }
-.floating-shape.shape1 { width:200px; height:200px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); top:10%; left:-50px; }
-.floating-shape.shape2 { width:150px; height:150px; background: linear-gradient(135deg, #8b5cf6, #3b82f6); bottom:10%; right:-50px; }
-@keyframes float { 0%,100%{transform:translateY(0px);} 50%{transform:translateY(20px);} }
+    /* --- PROJECTS --- */
+    .projects { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:40px; }
+    .project-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); border-radius:15px; overflow:hidden; transition:all 0.3s ease; }
+    .project-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(255,255,255,0.2); }
+    .project-card img { width:100%; height:180px; object-fit:cover; }
+    .project-card .card-content { padding:20px; }
+    .project-card h3 { font-size:1.3em; margin-bottom:10px; color:#9b59b6; }
+    .project-card a { display:inline-block; margin-top:10px; padding:10px 20px; background:#f1c40f; color:#0f1123; font-weight:600; border-radius:10px; transition:0.3s; }
+    .project-card a:hover { background:#f39c12; }
 
-/* Hero Section */
-.hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:100vh; position:relative; overflow:hidden; }
-.hero h1 { font-size:3rem; font-weight:700; background:linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-shadow:0 2px 10px rgba(59,130,246,0.3); margin-bottom:20px; }
-.hero p { font-size:1.2rem; color:#cbd5e1; margin-bottom:40px; }
-.button { display:inline-block; padding:15px 35px; font-size:1rem; font-weight:700; border-radius:12px; background:linear-gradient(135deg,#3b82f6,#8b5cf6); box-shadow:0 8px 20px rgba(59,130,246,0.4); transition: all 0.3s ease; color:#fff; margin:5px; }
-.button:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(59,130,246,0.6); }
+    /* --- PRICING --- */
+    .pricing { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:40px; }
+    .price-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); border-radius:15px; padding:30px; text-align:center; transition:all 0.3s ease; }
+    .price-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(255,255,255,0.2); }
+    .price-card h3 { font-size:1.5em; margin-bottom:15px; color:#9b59b6; }
+    .price-card p { margin-bottom:20px; }
+    .price-card span { display:block; font-size:1.8em; font-weight:700; color:#f1c40f; margin-bottom:20px; }
+    .price-card .btn { padding:10px 25px; background:#9b59b6; border:none; border-radius:10px; color:#fff; font-weight:600; cursor:pointer; transition:0.3s; }
+    .price-card .btn:hover { background:#8e44ad; box-shadow:0 0 15px #9b59b6; }
 
-/* Email Subscription Section */
-#subscribe { text-align:center; }
-#subscribe h2 { font-size:2rem; margin-bottom:15px; }
-#subscribe p { color:#cbd5e1; margin-bottom:20px; font-size:1rem; }
-#subscribe input { padding:12px 15px; border-radius:12px; border:1px solid rgba(255,255,255,0.2); width:250px; background: rgba(255,255,255,0.05); color:#fff; }
-#subscribe .button { width:auto; }
+    /* --- SOCIAL ICONS --- */
+    .social-icons { display:flex; justify-content:center; gap:30px; margin-top:20px; }
+    .social-icons a { font-size:1.5em; color:#fff; transition:0.3s; }
+    .social-icons a:hover { color:#9b59b6; }
 
-/* Services Section */
-.services { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin-top:40px; }
-.service-card { background: rgba(255,255,255,0.05); border-radius:15px; padding:30px; text-align:center; transition: transform 0.3s, box-shadow 0.3s; border:1px solid rgba(255,255,255,0.15); }
-.service-card:hover { transform:translateY(-5px); box-shadow:0 12px 30px rgba(59,130,246,0.4); }
-.service-card h3 { margin-bottom:15px; font-size:1.5rem; color:#fff; }
-.service-card p { color:#cbd5e1; }
+    /* --- CONTACT / SUBSCRIBE --- */
+    .subscribe { text-align:center; margin-top:30px; }
+    .subscribe input { padding:15px 20px; border-radius:12px; border:none; margin-right:10px; width:250px; max-width:80%; }
+    .subscribe button { padding:15px 25px; border:none; border-radius:12px; background:#f1c40f; font-weight:600; cursor:pointer; transition:0.3s; }
+    .subscribe button:hover { background:#f39c12; }
 
-/* Portfolio Section */
-.portfolio { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; margin-top:40px; }
-.portfolio-item { position:relative; border-radius:15px; overflow:hidden; }
-.portfolio-item img { width:100%; display:block; border-radius:15px; transition: transform 0.3s; }
-.portfolio-item:hover img { transform:scale(1.05); }
-.portfolio-item .overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); opacity:0; display:flex; justify-content:center; align-items:center; color:#fff; font-weight:700; font-size:1.2rem; transition:0.3s; border-radius:15px; }
-.portfolio-item:hover .overlay { opacity:1; }
-
-/* Pricing Section */
-.pricing { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-top:40px; }
-.price-card { background: rgba(255,255,255,0.05); border-radius:15px; padding:30px; text-align:center; border:1px solid rgba(255,255,255,0.15); transition: transform 0.3s, box-shadow 0.3s; }
-.price-card:hover { transform:translateY(-5px); box-shadow:0 12px 30px rgba(59,130,246,0.4); }
-.price-card h3 { margin-bottom:10px; font-size:1.5rem; color:#fff; }
-.price-card p { color:#cbd5e1; margin-bottom:15px; }
-
-/* Contact & Social Section */
-.contact { text-align:center; padding:60px 30px; }
-.contact h2 { font-size:2.5rem; margin-bottom:20px; color:#fff; }
-.contact p { color:#cbd5e1; margin-bottom:30px; font-size:1.2rem; }
-.social-icons { display:flex; justify-content:center; gap:20px; margin-top:20px; }
-.social-icons a { color:#fff; font-size:1.5rem; transition:0.3s; }
-.social-icons a:hover { color:#8b5cf6; }
-
-/* Footer */
-footer { text-align:center; padding:40px 20px; color:#cbd5e1; font-size:0.9rem; }
-footer a { color:#3b82f6; text-decoration:underline; }
-
-/* Responsive */
-@media(max-width:768px){ .hero h1{ font-size:2.2rem; } }
+    /* --- FOOTER --- */
+    footer { background: rgba(15,17,35,0.9); padding:40px 50px; text-align:center; }
+    footer p { margin-bottom:15px; }
 </style>
+
 </head>
-<body>
+<body><!-- NAVBAR -->
+<nav>
+    <div class="logo">PixelForge Studio</div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-<!-- Floating Shapes -->
-<div class="floating-shape shape1"></div>
-<div class="floating-shape shape2"></div>
-
-<!-- Hero Section -->
-<section class="hero">
-  <h1 data-aos="fade-up">Premium Websites for Growing Brands</h1>
-  <p data-aos="fade-up" data-aos-delay="100">Custom Websites • Shopify Stores • WordPress Development • Webflow Solutions</p>
-  <a href="mailto:contact.pixelforgestudio@gmail.com" class="button" data-aos="fade-up" data-aos-delay="200">Email Us</a>
-  <a href="https://wa.me/0602950755" class="button" data-aos="fade-up" data-aos-delay="300">WhatsApp Us</a>
+<!-- HERO -->
+<section class="hero" id="home">
+    <h1>PixelForge Studio</h1>
+    <p>Premium Websites, eCommerce, Logo & Branding — Affordable & Trustworthy</p>
+    <button class="btn" onclick="subscribeClick()">Subscribe Now</button>
 </section>
 
-<div class="container">
-
-  <!-- Email Subscription Section -->
-  <section class="glass" id="subscribe" data-aos="fade-up">
-    <h2>Stay Updated!</h2>
-    <p>Subscribe to receive updates, tips, and exclusive offers from PixelForge Studio.</p>
-    <form id="subscribeForm" style="display:flex; flex-direction:column; align-items:center; gap:15px; margin-top:20px;">
-      <input type="email" id="subscriberEmail" placeholder="Enter your email" required>
-      <button type="submit" class="button">Subscribe</button>
-      <button type="button" class="button" onclick="googleLogin()">Login with Google</button>
-    </form>
-    <p style="margin-top:10px; color:#cbd5e1; font-size:0.9rem;">We respect your privacy. You can unsubscribe anytime.</p>
-  </section>
-
-  <!-- Services Section -->
-  <section class="glass" id="services">
-    <h2 data-aos="fade-up">Our Services</h2>
-    <div class="services">
-      <div class="service-card" data-aos="fade-up" data-aos-delay="50">
-        <h3>Custom Website Development</h3>
-        <p>Tailor-made websites built for performance and scalability.</p>
-      </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-        <h3>WordPress Development</h3>
-        <p>Flexible and powerful websites for businesses and blogs.</p>
-      </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="150">
-        <h3>Shopify & E-Commerce</h3>
-        <p>High-converting online stores built to sell products efficiently.</p>
-      </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-        <h3>No-Code Solutions</h3>
-        <p>Fast modern builds using Webflow and Wix for quick deployment.</p>
-      </div>
+<!-- PROJECTS -->
+<section id="projects">
+    <h2 class="section-title">Our Projects</h2>
+    <div class="projects">
+        <div class="project-card">
+            <img src="https://via.placeholder.com/400x200?text=Salon+Website" alt="Salon Demo">
+            <div class="card-content">
+                <h3>Salon Website</h3>
+                <p>Responsive, bright, and professional design for beauty salons.</p>
+                <a href="#">View Demo</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="https://via.placeholder.com/400x200?text=Restaurant+Website" alt="Restaurant Demo">
+            <div class="card-content">
+                <h3>Restaurant Website</h3>
+                <p>Modern, mobile-friendly site with menu & reservation features.</p>
+                <a href="#">View Demo</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="https://via.placeholder.com/400x200?text=Consultant+Website" alt="Consultant Demo">
+            <div class="card-content">
+                <h3>Consultant Website</h3>
+                <p>Professional design for consulting & business services.</p>
+                <a href="#">View Demo</a>
+            </div>
+        </div>
     </div>
-  </section>
+</section>
 
-  <!-- Pricing Section -->
-  <section class="glass" id="pricing">
-    <h2 data-aos="fade-up">Pricing Packages</h2>
+<!-- PRICING -->
+<section id="pricing">
+    <h2 class="section-title">Pricing</h2>
     <div class="pricing">
-      <div class="price-card" data-aos="fade-up" data-aos-delay="50">
-        <h3>Starter</h3>
-        <p>$300</p>
-        <p>1-page website, basic design, mobile-friendly</p>
-      </div>
-      <div class="price-card" data-aos="fade-up" data-aos-delay="100">
-        <h3>Professional</h3>
-        <p>$500</p>
-        <p>3-page website, premium design, responsive</p>
-      </div>
-      <div class="price-card" data-aos="fade-up" data-aos-delay="150">
-        <h3>Advanced</h3>
-        <p>$800+</p>
-        <p>5+ pages, custom design, e-commerce ready</p>
-      </div>
+        <div class="price-card">
+            <h3>1-Page Website</h3>
+            <p>Simple landing page, mobile-friendly</p>
+            <span>R500+</span>
+            <button class="btn">Get Started</button>
+        </div>
+        <div class="price-card">
+            <h3>Small Business Site</h3>
+            <p>3–5 pages, responsive, basic SEO, social links</p>
+            <span>R1,000+</span>
+            <button class="btn">Get Started</button>
+        </div>
+        <div class="price-card">
+            <h3>Professional Business Site</h3>
+            <p>5–10 pages, responsive, SEO, social media integration, animations</p>
+            <span>R2,000+</span>
+            <button class="btn">Get Started</button>
+        </div>
+        <div class="price-card">
+            <h3>Logo Design & Branding</h3>
+            <p>Custom logo, color palette, typography, brand guide</p>
+            <span>R1,500+</span>
+            <button class="btn">Get Started</button>
+        </div>
+        <div class="price-card">
+            <h3>WordPress eCommerce</h3>
+            <p>WooCommerce setup, 10–20 products, basic payment integration</p>
+            <span>R3,500+</span>
+            <button class="btn">Get Started</button>
+        </div>
+        <div class="price-card">
+            <h3>Shopify Store</h3>
+            <p>Shopify setup, 10–30 products, payment & shipping setup</p>
+            <span>R4,500+</span>
+            <button class="btn">Get Started</button>
+        </div>
+        <div class="price-card">
+            <h3>Premium eCommerce</h3>
+            <p>Unlimited pages/products, advanced SEO, animations, security</p>
+            <span>R7,000+</span>
+            <button class="btn">Get Started</button>
+        </div>
     </div>
-  </section>
+</section>
 
-  <!-- Portfolio Section -->
-  <section class="glass" id="portfolio">
-    <h2 data-aos="fade-up">Demo Websites</h2>
-    <div class="portfolio">
-      <div class="portfolio-item" data-aos="fade-up" data-aos-delay="50">
-        <img src="https://via.placeholder.com/600x400.png?text=Demo+1" alt="Demo 1">
-        <div class="overlay">Demo 1 – Personal Brand</div>
-      </div>
-      <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://via.placeholder.com/600x400.png?text=Demo+2" alt="Demo 2">
-        <div class="overlay">Demo 2 – E-Commerce</div>
-      </div>
-      <div class="portfolio-item" data-aos="fade-up" data-aos-delay="150">
-        <img src="https://via.placeholder.com/600x400.png?text=Demo+3" alt="Demo 3">
-        <div class="overlay">Demo 3 – Portfolio / Creative Agency</div>
-      </div>
+<!-- CONTACT / SUBSCRIBE -->
+<section id="contact">
+    <h2 class="section-title">Subscribe & Contact</h2>
+    <div class="subscribe">
+        <input type="email" id="email" placeholder="Enter your email">
+        <button onclick="subscribeClick()">Subscribe / Login</button>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="glass contact" id="contact">
-    <h2 data-aos="fade-up">Get in Touch</h2>
-    <p data-aos="fade-up" data-aos-delay="100">Email or WhatsApp us to start your project today.</p>
-    <a href="mailto:contact.pixelforgestudio@gmail.com" class="button" data-aos="fade-up" data-aos-delay="200">Email Us</a>
-    <a href="https://wa.me/0602950755" class="button" data-aos="fade-up" data-aos-delay="300">WhatsApp Us</a>
-    <div class="social-icons" data-aos="fade-up" data-aos-delay="400">
-      <a href="https://www.facebook.com/profile.php?id=61587602161378" target="_blank">Facebook</a>
-      <a href="https://www.instagram.com/studio_pixelforge?igsh=eGlhanB1Ym5iOGgw" target="_blank">Instagram</a>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61587602161378" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/studio_pixelforge?igsh=eGlhanB1Ym5iOGgw" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/0602950755" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
-  </section>
+</section>
 
-</div>
-
+<!-- FOOTER -->
 <footer>
-  © 2026 PixelForge Studio | <a href="mailto:contact.pixelforgestudio@gmail.com">Contact Us</a>
+    <p>&copy; 2026 PixelForge Studio. All Rights Reserved.</p>
 </footer>
 
-<!-- AOS Animation JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration:1000, once:true });
-
-  // Email subscription form
-  document.getElementById('subscribeForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const email = document.getElementById('subscriberEmail').value;
-    console.log('New subscriber:', email);
-    alert('Thanks for subscribing! You’ll get updates from PixelForge Studio.');
-    document.getElementById('subscriberEmail').value = '';
-  });
-
-  // Google login demo
-  function googleLogin() {
-    alert('Google login clicked! Integrate Google OAuth here.');
-  }
+    function subscribeClick() {
+        const emailInput = document.getElementById('email');
+        const email = emailInput.value;
+        if(email) {
+            alert('Thanks for subscribing!');
+            emailInput.value = '';
+        } else {
+            alert('Please enter your email');
+        }
+    }
 </script>
 
 </body>
-        </html>
+</html>
