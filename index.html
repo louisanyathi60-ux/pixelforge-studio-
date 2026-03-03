@@ -6,12 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
   <div class="container nav">
+    
     <div class="logo">
-      <img src="logo.png" alt="PixelForge Logo">
+      <img src="logo.png" alt="PixelForge Studio Logo">
       <span>PixelForge Studio</span>
     </div>
 
@@ -20,6 +22,7 @@
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
+
   </div>
 </header>
 
@@ -58,18 +61,33 @@
   <div class="container">
     <h2>Let's Work Together</h2>
 
-    <form action="mailto:your@email.com" method="post" enctype="text/plain">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Tell us about your project..." rows="5" required></textarea>
+    <form action="https://formsubmit.co/contact.pixelforgestudio@gmail.com" method="POST">
+
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://louisanyathi60-ux.github.io/pixelforge-studio-/">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
+
       <button type="submit">Send Message</button>
+
     </form>
   </div>
 </section>
 
 <footer>
   <div class="container">
+
+    <div class="socials">
+      <a href="https://www.facebook.com/profile.php?id=61587602161378" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/studio_pixelforge" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/in/louisa-undefined-9aa5a03b1" target="_blank">LinkedIn</a>
+      <a href="https://wa.me/27602950755" target="_blank">WhatsApp</a>
+    </div>
+
     <p>© 2026 PixelForge Studio. All rights reserved.</p>
+
   </div>
 </footer>
 
