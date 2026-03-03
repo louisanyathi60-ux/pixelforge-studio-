@@ -1,198 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PixelForge Studio - Premium Web Design</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome for Social Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papJ7s1gF+Sbkl3/jcZQFOV6Vx9UuQ/3WqzjM0j6W2vFJEZkUO7F1jRqqV5C6wlrm0k6nZ6UQ5z0r1XmRGk9Og==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<!-- AOS Animation Library -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-<!-- Particle.js -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-<style>
-/* Reset */
-*{ margin:0; padding:0; box-sizing:border-box; }
-body{ font-family:'Montserrat', sans-serif; background:#0f1123; color:#fff; overflow-x:hidden; }
-a{ text-decoration:none; color:inherit; }
-
-/* Navbar */
-nav{ display:flex; justify-content:space-between; align-items:center; padding:20px 50px; position:sticky; top:0; z-index:100; background:rgba(15,17,35,0.85); backdrop-filter:blur(10px); }
-.nav-links{ display:flex; gap:30px; }
-.nav-links a{ font-weight:600; transition:0.3s; }
-.nav-links a:hover{ color:#ff4dff; }
-.hamburger{ display:none; flex-direction:column; cursor:pointer; }
-.hamburger div{ width:25px; height:3px; background-color:#fff; margin:4px; transition:0.3s; }
-@media screen and (max-width:768px){
-    .nav-links{ display:none; flex-direction:column; background:#0f1123; position:absolute; top:70px; right:0; width:200px; padding:20px; }
-    .nav-links.active{ display:flex; }
-    .hamburger{ display:flex; }
-}
-
-/* Hero Section */
-#particles-js{ position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
-header{ position:relative; text-align:center; padding:150px 20px; z-index:1; }
-header .hero-content{ position:relative; z-index:1; display:inline-block; background: rgba(255,255,255,0.05); padding:50px 40px; border-radius:20px; backdrop-filter:blur(10px); }
-header h1{ font-size:3.5em; margin-bottom:20px; color:#fff; text-shadow:0 0 20px #ff4dff; }
-header p{ font-size:1.3em; margin-bottom:30px; color:#eee; }
-.btn-primary{ background: linear-gradient(45deg,#9b59b6,#ff4dff); padding:15px 35px; border-radius:15px; color:#fff; font-weight:bold; cursor:pointer; box-shadow:0 8px 20px rgba(255,77,255,0.5); transition: all 0.3s ease; }
-.btn-primary:hover{ transform:translateY(-5px); box-shadow:0 15px 30px rgba(255,77,255,0.7); }
-
-/* Projects Section */
-.projects{ padding:100px 20px; text-align:center; }
-.projects h2{ font-size:3em; margin-bottom:50px; color:#ff4dff; }
-.project-cards{ display:flex; flex-wrap:wrap; justify-content:center; gap:40px; }
-.project-card{ background: rgba(255,255,255,0.05); padding:20px; border-radius:25px; width:340px; backdrop-filter: blur(15px); transition: all 0.4s ease; box-shadow:0 5px 20px rgba(255,77,255,0.2); }
-.project-card:hover{ transform:translateY(-7px); box-shadow:0 15px 40px rgba(255,77,255,0.5); }
-.project-card img{ width:100%; border-radius:15px; margin-bottom:15px; }
-.project-card h3{ margin-bottom:10px; color:#fff; }
-.project-card .btn-demo{ background: linear-gradient(45deg,#2575fc,#ff4dff); color:#fff; padding:12px 30px; border-radius:12px; font-weight:bold; cursor:pointer; transition: all 0.3s ease; box-shadow:0 5px 15px rgba(37,117,252,0.4); }
-.project-card .btn-demo:hover{ transform:translateY(-3px); box-shadow:0 12px 25px rgba(37,117,252,0.6); }
-
-/* Pricing Section */
-.pricing{ padding:100px 20px; text-align:center; background:linear-gradient(135deg,#1a1c36,#0f1123); }
-.pricing h2{ font-size:3em; margin-bottom:50px; color:#ff4dff; }
-.pricing-cards{ display:flex; flex-wrap:wrap; justify-content:center; gap:40px; }
-.pricing-card{ background: rgba(255,255,255,0.05); padding:40px; border-radius:25px; width:300px; backdrop-filter: blur(15px); box-shadow:0 5px 20px rgba(255,77,255,0.2); transition: all 0.4s ease; }
-.pricing-card:hover{ transform:translateY(-7px); box-shadow:0 15px 40px rgba(255,77,255,0.5); }
-.pricing-card h3{ margin-bottom:15px; font-size:1.7em; color:#fff; }
-.pricing-card p{ margin-bottom:10px; color:#ddd; }
-.pricing-card .price{ font-size:2em; font-weight:bold; color:#ff4dff; margin-bottom:15px; }
-
-/* Contact Section */
-.contact{ padding:100px 20px; text-align:center; }
-.contact h2{ font-size:2.5em; margin-bottom:30px; color:#ff4dff; }
-.contact form{ display:flex; flex-direction:column; align-items:center; gap:20px; max-width:500px; margin:0 auto; }
-.contact input, .contact textarea{ width:100%; padding:15px; border-radius:12px; border:none; backdrop-filter:blur(5px); background: rgba(255,255,255,0.05); color:#fff; }
-.contact button{ padding:15px 35px; border-radius:15px; background: linear-gradient(45deg,#9b59b6,#ff4dff); color:#fff; cursor:pointer; font-weight:bold; box-shadow:0 8px 20px rgba(255,77,255,0.5); transition: all 0.3s ease; }
-.contact button:hover{ transform:translateY(-3px); box-shadow:0 12px 25px rgba(255,77,255,0.7); }
-
-/* Footer */
-footer{ padding:60px 20px; text-align:center; background:#0f1123; }
-footer a{ margin:0 20px; font-size:2em; color:#ff4dff; transition: all 0.3s ease; }
-footer a:hover{ transform: scale(1.4); color:#fff; }
-footer p{ margin-top:20px; color:#ddd; }
-</style>
+  <meta charset="UTF-8">
+  <title>PixelForge Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Navbar -->
-<nav>
-    <div class="logo">PIXELFORGE</div>
-    <div class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <img src="logo.png" alt="PixelForge Logo">
+      <span>PixelForge Studio</span>
     </div>
-    <div class="hamburger" id="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</nav>
 
-<!-- Hero Section -->
-<div id="particles-js"></div>
-<header id="home">
-    <div class="hero-content" data-aos="fade-down">
-        <h1>PixelForge Studio</h1>
-        <p>Premium Websites, eCommerce, Logo & Branding — Affordable & Trustworthy</p>
-        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</button>
-    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<!-- Projects Section -->
-<section class="projects" id="projects">
-    <h2 data-aos="fade-up">Our Projects</h2>
-    <div class="project-cards">
-        <div class="project-card" data-aos="fade-up">
-            <img src="https://via.placeholder.com/340x200.png?text=Salon+Demo" alt="Salon Demo">
-            <h3>Salon Website</h3>
-            <button class="btn-demo" onclick="window.open('https://louisanyathi60-ux.github.io/rootsfest-preview-','_blank')">View Live Demo</button>
-        </div>
-        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-            <img src="https://via.placeholder.com/340x200.png?text=Restaurant+Demo" alt="Restaurant Demo">
-            <h3>Restaurant Website</h3>
-            <button class="btn-demo" onclick="window.open('https://louisanyathi60-ux.github.io/golden-fork-restaurant-demo','_blank')">View Live Demo</button>
-        </div>
-        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-            <img src="https://via.placeholder.com/340x200.png?text=Consultant+Demo" alt="Consultant Demo">
-            <h3>Consultant Website</h3>
-            <button class="btn-demo" onclick="window.open('https://louisanyathi60-ux.github.io/elite-consulting-demo','_blank')">View Live Demo</button>
-        </div>
-    </div>
+<section class="hero">
+  <div class="container">
+    <h1>We Build Premium Digital Experiences</h1>
+    <p>Modern websites that elevate your brand and convert visitors into clients.</p>
+    <a href="#contact" class="btn">Start Your Project</a>
+  </div>
 </section>
 
-<!-- Pricing Section -->
-<section class="pricing" id="pricing">
-    <h2 data-aos="fade-up">Pricing</h2>
-    <div class="pricing-cards">
-        <div class="pricing-card" data-aos="fade-up">
-            <h3>1-Page Website</h3>
-            <p class="price">R500+</p>
-            <p>Perfect for personal or small business pages.</p>
-        </div>
-        <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
-            <h3>Multi-Page Website</h3>
-            <p class="price">R1500+</p>
-            <p>Full business website with 5+ pages.</p>
-        </div>
-        <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
-            <h3>eCommerce / WordPress / Shopify</h3>
-            <p class="price">R3000+</p>
-            <p>Professional online stores including hosting setup.</p>
-        </div>
-        <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
-            <h3>Logo & Branding</h3>
-            <p class="price">R1000+</p>
-            <p>Complete brand identity package for your business.</p>
-        </div>
+<section id="services" class="services">
+  <div class="container">
+    <h2>Our Services</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Business Websites</h3>
+        <p>Professional websites built to establish credibility and grow your business.</p>
+      </div>
+
+      <div class="card">
+        <h3>E-Commerce Stores</h3>
+        <p>Online stores designed for performance, speed, and maximum conversions.</p>
+      </div>
+
+      <div class="card">
+        <h3>Landing Pages</h3>
+        <p>High-converting pages tailored for marketing and advertising campaigns.</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Contact Section -->
-<section class="contact" id="contact">
-    <h2 data-aos="fade-up">Contact Us</h2>
-    <form data-aos="fade-up" data-aos-delay="100" action="mailto:contact.pixelforgestudio@gmail.com" method="POST" enctype="text/plain">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Let's Work Together</h2>
+
+    <form action="mailto:your@email.com" method="post" enctype="text/plain">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Tell us about your project..." rows="5" required></textarea>
+      <button type="submit">Send Message</button>
     </form>
+  </div>
 </section>
 
-<!-- Footer -->
 <footer>
-    <p>Connect with us:</p>
-    <a href="https://www.facebook.com/profile.php?id=61587602161378" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/studio_pixelforge?igsh=eGlhanB1Ym5iOGgw" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://wa.me/0602950755" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <p>&copy; 2026 PixelForge Studio</p>
+  <div class="container">
+    <p>© 2026 PixelForge Studio. All rights reserved.</p>
+  </div>
 </footer>
 
-<!-- Scripts -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-AOS.init({ duration:1200 });
-
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-hamburger.addEventListener('click', ()=>{
-  navLinks.classList.toggle('active');
-});
-
-particlesJS('particles-js', {
-  particles:{ number:{value:60}, color:{value:'#ff4dff'}, shape:{type:'circle'}, opacity:{value:0.3}, size:{value:4}, line_linked:{enable:true, color:'#ff4dff', opacity:0.2} },
-  interactivity:{ detect_on:'canvas', events:{ onhover:{ enable:true, mode:'repulse' } } }
-});
-</script>
 </body>
 </html>
