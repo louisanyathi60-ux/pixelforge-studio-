@@ -1,102 +1,106 @@
-<!DOCTYPE html><html lang="en">
+<!-- ================= INDEX.HTML ================= --><!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PixelForge Studio</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"><style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-body{background:#0b0014;color:white;overflow-x:hidden;}
-
-header{
-position:fixed;top:0;width:100%;z-index:1000;
-display:flex;justify-content:space-between;align-items:center;
-padding:15px 20px;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
+<title>PixelForge Studio</title><style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0b0014;
+  color:white;
 }
-
-.logo{font-weight:bold;color:#d8a4ff;text-shadow:0 0 10px #a855f7;}
-
-nav{display:none;flex-direction:column;position:absolute;top:60px;right:20px;background:#140022;border-radius:10px;}
-nav a{padding:10px 15px;text-decoration:none;color:white;}
-nav a:hover{background:#2a0050;}
-
-.hamburger{font-size:22px;cursor:pointer;}
-.show{display:flex;}
 
 .hero{
-padding-top:100px;
-display:flex;
-flex-direction:column;
-text-align:center;
-padding:100px 20px 40px;
-background:radial-gradient(circle at top,#2a0050,#0b0014);
+  height:100vh;
+  background:url('a_digital_design_of_the_pixelforge_studio_homepage.png') no-repeat center/cover;
+  position:relative;
 }
 
-.hero-text h1{
-font-size:36px;
-line-height:1.2;
+nav{
+  position:absolute;
+  top:30px;
+  right:60px;
 }
 
-.hero-text span{color:#d8a4ff;}
-
-.hero-text p{
-margin-top:15px;
-opacity:0.8;
+nav a{
+  margin-left:25px;
+  text-decoration:none;
+  color:white;
+  font-weight:500;
 }
 
 .btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 25px;
-border-radius:25px;
-background:linear-gradient(45deg,#a855f7,#d8a4ff);
-text-decoration:none;
-color:white;
+  position:absolute;
+  left:120px;
+  top:65%;
+  padding:15px 35px;
+  background:linear-gradient(45deg,#a855f7,#d8a4ff);
+  border-radius:30px;
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
 }
 
-.hero-image{
-margin-top:30px;
-}
-
-.hero-image img{
-width:100%;border-radius:20px;
-box-shadow:0 0 40px rgba(168,85,247,0.6);
-}
-
-/* DESKTOP */
-@media(min-width:768px){
-nav{display:flex;position:static;flex-direction:row;background:none;}
-.hamburger{display:none;}
-.hero{
-flex-direction:row;
-text-align:left;
-align-items:center;
-justify-content:space-between;
-padding:120px 80px;
-}
-.hero-text{max-width:500px;}
-.hero-text h1{font-size:55px;}
-.hero-image img{width:500px;}
-}
-</style></head><body><header>
-<div class="logo">🚀 PIXELFORGE</div>
-<div class="hamburger" onclick="toggleMenu()">☰</div>
-<nav id="menu">
+</style></head>
+<body><section class="hero"><nav>
 <a href="index.html">Home</a>
 <a href="projects.html">Projects</a>
 <a href="prices.html">Prices</a>
 <a href="contact.html">Contact</a>
-</nav>
-</header><section class="hero"><div class="hero-text">
-<h1>We design <span>high-end websites</span> that convert</h1>
-<p>Elevate your brand with visually stunning websites built using Shopify, WordPress and custom code.</p>
-<a href="projects.html" class="btn">View Projects</a>
-</div><div class="hero-image">
-<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
-</div></section><script>
-function toggleMenu(){
- document.getElementById('menu').classList.toggle('show');
-}
-</script></body>
+</nav><a href="projects.html" class="btn">GET STARTED NOW</a>
+
+</section></body>
+</html><!-- ================= PROJECTS.HTML ================= --><!DOCTYPE html><html>
+<head>
+<title>Projects</title>
+<style>
+body{background:#0b0014;color:white;font-family:Arial;text-align:center;}
+.card{margin:30px;padding:20px;background:#140022;border-radius:15px;}
+a{color:#d8a4ff;text-decoration:none;}
+</style>
+</head>
+<body>
+<h1>Projects</h1><div class="card">
+<h3>Salon Website</h3>
+<a href="https://louisanyathi60-ux.github.io/salon-demo/">View</a>
+</div><div class="card">
+<h3>Consulting Website</h3>
+<a href="https://louisanyathi60-ux.github.io/elite-consulting-demo/">View</a>
+</div><div class="card">
+<h3>Restaurant Website</h3>
+<a href="https://louisanyathi60-ux.github.io/golden-fork-restaurant-demo/">View</a>
+</div><div class="card">
+<h3>Festival Website</h3>
+<a href="https://louisanyathi60-ux.github.io/rootsfest-preview-/">View</a>
+</div></body>
+</html><!-- ================= PRICES.HTML ================= --><!DOCTYPE html><html>
+<head>
+<title>Prices</title>
+<style>
+body{background:#0b0014;color:white;font-family:Arial;text-align:center;}
+</style>
+</head>
+<body>
+<h1>Pricing</h1>
+<p>R500 - 1 Page Website</p>
+<p>R1500 - 3 Pages</p>
+<p>R3000+ - Full Website</p>
+</body>
+</html><!-- ================= CONTACT.HTML ================= --><!DOCTYPE html><html>
+<head>
+<title>Contact</title>
+<style>
+body{background:#0b0014;color:white;font-family:Arial;text-align:center;}
+input,textarea{width:80%;padding:10px;margin:10px;border-radius:10px;border:none;}
+</style>
+</head>
+<body>
+<h1>Contact</h1>
+<form>
+<input placeholder="Name">
+<input placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button>Send</button>
+</form><p>Contact.pixelforgestudio@gmail.com</p>
+<p>0602950755</p></body>
 </html>
