@@ -3,61 +3,100 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PixelForge Studio</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"><style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-body{
-  background:#0b0014;
-  color:white;
-  overflow-x:hidden;
-}/* BACKGROUND */ .hero{ height:100vh; display:flex; align-items:center; justify-content:space-between; padding:60px; background:radial-gradient(circle at top left,#2a0050,#0b0014); }
+body{background:#0b0014;color:white;overflow-x:hidden;}
 
-/* NAV */ header{ position:absolute; top:0; width:100%; display:flex; justify-content:space-between; align-items:center; padding:20px 60px; }
+header{
+position:fixed;top:0;width:100%;z-index:1000;
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 20px;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+}
 
-.logo{ font-size:22px; font-weight:bold; color:#d8a4ff; text-shadow:0 0 15px #a855f7; }
+.logo{font-weight:bold;color:#d8a4ff;text-shadow:0 0 10px #a855f7;}
 
-nav a{ margin-left:30px; color:white; text-decoration:none; opacity:0.8; } nav a:hover{ opacity:1; text-shadow:0 0 10px #a855f7; }
+nav{display:none;flex-direction:column;position:absolute;top:60px;right:20px;background:#140022;border-radius:10px;}
+nav a{padding:10px 15px;text-decoration:none;color:white;}
+nav a:hover{background:#2a0050;}
 
-.cta{ background:linear-gradient(45deg,#a855f7,#d8a4ff); padding:10px 20px; border-radius:20px; }
+.hamburger{font-size:22px;cursor:pointer;}
+.show{display:flex;}
 
-/* LEFT TEXT */ .hero-text{ max-width:500px; }
+.hero{
+padding-top:100px;
+display:flex;
+flex-direction:column;
+text-align:center;
+padding:100px 20px 40px;
+background:radial-gradient(circle at top,#2a0050,#0b0014);
+}
 
-.hero-text h1{ font-size:55px; line-height:1.2; }
+.hero-text h1{
+font-size:36px;
+line-height:1.2;
+}
 
-.hero-text span{ color:#d8a4ff; }
+.hero-text span{color:#d8a4ff;}
 
-.hero-text p{ margin-top:20px; opacity:0.8; }
+.hero-text p{
+margin-top:15px;
+opacity:0.8;
+}
 
-.btn{ margin-top:25px; display:inline-block; background:linear-gradient(45deg,#a855f7,#d8a4ff); padding:15px 30px; border-radius:30px; text-decoration:none; color:white; box-shadow:0 0 25px rgba(168,85,247,0.8); transition:0.3s; }
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 25px;
+border-radius:25px;
+background:linear-gradient(45deg,#a855f7,#d8a4ff);
+text-decoration:none;
+color:white;
+}
 
-.btn:hover{ transform:scale(1.1); }
+.hero-image{
+margin-top:30px;
+}
 
-/* RIGHT MOCKUP */ .hero-image{ position:relative; }
+.hero-image img{
+width:100%;border-radius:20px;
+box-shadow:0 0 40px rgba(168,85,247,0.6);
+}
 
-.hero-image img{ width:500px; border-radius:20px; box-shadow:0 0 60px rgba(168,85,247,0.8); }
-
-/* FLOATING CARD */ .floating{ position:absolute; top:-40px; left:-60px; background:rgba(255,255,255,0.05); padding:15px; border-radius:15px; backdrop-filter:blur(15px); box-shadow:0 0 20px rgba(168,85,247,0.4); }
-
-/* ROCKET */ .rocket{ position:absolute; top:-60px; right:-40px; font-size:40px; color:#d8a4ff; text-shadow:0 0 20px #a855f7; }
-
-</style>
-</head>
-<body><header>
-<div class="logo">🚀 PIXELFORGE STUDIO</div>
-<nav>
+/* DESKTOP */
+@media(min-width:768px){
+nav{display:flex;position:static;flex-direction:row;background:none;}
+.hamburger{display:none;}
+.hero{
+flex-direction:row;
+text-align:left;
+align-items:center;
+justify-content:space-between;
+padding:120px 80px;
+}
+.hero-text{max-width:500px;}
+.hero-text h1{font-size:55px;}
+.hero-image img{width:500px;}
+}
+</style></head><body><header>
+<div class="logo">🚀 PIXELFORGE</div>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<nav id="menu">
 <a href="index.html">Home</a>
 <a href="projects.html">Projects</a>
 <a href="prices.html">Prices</a>
 <a href="contact.html">Contact</a>
-<a class="cta" href="contact.html">Get Started</a>
 </nav>
 </header><section class="hero"><div class="hero-text">
 <h1>We design <span>high-end websites</span> that convert</h1>
-<p>Elevate your brand with visually stunning and high-performing websites built using Shopify, WordPress, and custom code.</p>
+<p>Elevate your brand with visually stunning websites built using Shopify, WordPress and custom code.</p>
 <a href="projects.html" class="btn">View Projects</a>
 </div><div class="hero-image">
-<i class="fas fa-rocket rocket"></i>
-<div class="floating">UI Preview</div>
 <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
-</div></section></body>
+</div></section><script>
+function toggleMenu(){
+ document.getElementById('menu').classList.toggle('show');
+}
+</script></body>
 </html>
