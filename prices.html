@@ -1,63 +1,146 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Pricing</title>
+<title>Pricing - PixelForge</title>
 
 <style>
-body{background:#070710;color:white;font-family:sans-serif;text-align:center;}
+body{
+  background:#070710;
+  color:white;
+  font-family:sans-serif;
+  text-align:center;
+}
 
-header{padding:20px;background:#000;}
+h1{margin-top:40px;}
+p.subtitle{color:#aaa;}
 
 .cards{
-display:flex;flex-wrap:wrap;justify-content:center;
-gap:20px;padding:50px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+  padding:50px;
 }
 
 .card{
-background:#111122;padding:25px;border-radius:10px;width:250px;
+  background:#111122;
+  padding:30px;
+  border-radius:15px;
+  width:300px;
+  text-align:left;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 25px rgba(123,44,255,0.5);
+}
+
+.price{
+  font-size:28px;
+  color:#c084ff;
+  margin:10px 0;
+}
+
+.badge{
+  background:#7b2cff;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:12px;
+  display:inline-block;
+}
+
+ul{
+  margin-top:15px;
+}
+
+ul li{
+  margin:8px 0;
+  color:#bbb;
 }
 
 button{
-margin-top:15px;padding:10px;border:none;
-background:#7b2cff;color:white;border-radius:5px;
+  margin-top:20px;
+  padding:12px;
+  width:100%;
+  border:none;
+  border-radius:8px;
+  background:#7b2cff;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.note{
+  margin-top:30px;
+  color:#aaa;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<a href="index.html" style="color:white;">← Back Home</a>
-</header>
-
-<h1>Pricing</h1>
+<h1>Our Pricing</h1>
+<p class="subtitle">Clear packages designed for businesses at every stage</p>
 
 <div class="cards">
+
 <div class="card">
 <h3>Starter</h3>
-<p>R500</p>
-<p>1 Page Website</p>
-<button onclick="contact()">Choose</button>
+<div class="price">R500</div>
+<p>Perfect for small businesses starting out</p>
+
+<ul>
+<li>✔ 1 Page Website</li>
+<li>✔ Mobile Responsive</li>
+<li>✔ Clean Modern Design</li>
+<li>✔ Contact Section</li>
+<li>✔ Delivery: 2–3 Days</li>
+</ul>
+
+<button onclick="contact('Starter')">Get Started</button>
 </div>
 
 <div class="card">
+<div class="badge">Most Popular</div>
 <h3>Growth</h3>
-<p>R1500</p>
-<p>Up to 4 Pages</p>
-<button onclick="contact()">Choose</button>
+<div class="price">R1500</div>
+<p>Best for growing brands that need more pages</p>
+
+<ul>
+<li>✔ Up to 4 Pages</li>
+<li>✔ Premium UI Design</li>
+<li>✔ Mobile + Tablet Optimized</li>
+<li>✔ Basic SEO Setup</li>
+<li>✔ Delivery: 5–7 Days</li>
+</ul>
+
+<button onclick="contact('Growth')">Choose Plan</button>
 </div>
 
 <div class="card">
 <h3>Pro</h3>
-<p>R3000+</p>
-<p>Full Website</p>
-<button onclick="contact()">Choose</button>
-</div>
+<div class="price">R3000+</div>
+<p>For serious businesses and online stores</p>
+
+<ul>
+<li>✔ Full Website (5+ Pages)</li>
+<li>✔ Custom Design & Branding</li>
+<li>✔ E-commerce Functionality</li>
+<li>✔ Advanced Features</li>
+<li>✔ Priority Support</li>
+</ul>
+
+<button onclick="contact('Pro')">Get Quote</button>
 </div>
 
+</div>
+
+<p class="note">💡 Need something custom? Contact us for a tailored quote.</p>
+
 <script>
-function contact(){
-window.open("https://wa.me/27602950755");
+function contact(plan){
+window.open(`https://wa.me/27602950755?text=Hi, I'm interested in the ${plan} package`);
 }
 </script>
 
