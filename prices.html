@@ -1,106 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PixelForge Studio | Prices</title>
-  <link rel="stylesheet" href="style.css">
+<title>Pricing</title>
+
+<style>
+body{background:#070710;color:white;font-family:sans-serif;text-align:center;}
+
+.cards{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+  padding:60px;
+}
+
+.card{
+  padding:30px;
+  background:#111122;
+  border-radius:15px;
+  width:260px;
+}
+
+.price{
+  font-size:24px;
+  color:#c084ff;
+  margin:10px 0;
+}
+
+button{
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  background:#7b2cff;
+  color:white;
+  border-radius:5px;
+}
+</style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo">
-    <img src="logo.png" alt="PixelForge Studio Logo">
-  </div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="demos/index.html">Demos</a></li>
-    <li><a href="prices.html" class="active">Prices</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
+<h1>Pricing</h1>
 
-<!-- PRICES SECTION -->
-<section class="pricing">
-  <h2>Our Web Services & Prices</h2>
-  <p>All prices are in ZAR. A 50% deposit is required to start your project.</p>
-  
-  <div class="price-cards">
+<div class="cards">
 
-    <!-- 1-Page Website -->
-    <div class="price-card">
-      <h3>1-Page Website</h3>
-      <p>R500</p>
-      <ul>
-        <li>Single page website</li>
-        <li>Responsive layout</li>
-        <li>Basic styling & logo integration</li>
-      </ul>
-    </div>
+<div class="card">
+<h3>Starter</h3>
+<div class="price">R500</div>
+<p>1 Page Website</p>
+<p>Mobile Friendly</p>
+<p>Fast Delivery</p>
+<button>Choose Plan</button>
+</div>
 
-    <!-- 2-Page Website -->
-    <div class="price-card">
-      <h3>2-Page Website</h3>
-      <p>R900</p>
-      <ul>
-        <li>Home + About / Services</li>
-        <li>Responsive layout</li>
-        <li>Contact form included</li>
-      </ul>
-    </div>
+<div class="card">
+<h3>Growth</h3>
+<div class="price">R1500</div>
+<p>Up to 4 Pages</p>
+<p>Modern Design</p>
+<p>SEO Setup</p>
+<button>Most Popular</button>
+</div>
 
-    <!-- 4-Page Website -->
-    <div class="price-card">
-      <h3>4-Page Website</h3>
-      <p>R1,600</p>
-      <ul>
-        <li>Home + About + Services + Contact</li>
-        <li>Responsive & modern styling</li>
-        <li>Gallery / Portfolio included</li>
-      </ul>
-    </div>
+<div class="card">
+<h3>Pro</h3>
+<div class="price">R3000+</div>
+<p>Full Website</p>
+<p>E-commerce</p>
+<p>Custom Design</p>
+<button>Get Started</button>
+</div>
 
-    <!-- E-Commerce Website -->
-    <div class="price-card">
-      <h3>E-Commerce Website</h3>
-      <p>R2,500 – R4,000</p>
-      <ul>
-        <li>Small store: up to 50 products (R2,500)</li>
-        <li>Large store: 50+ products / advanced features (R4,000)</li>
-        <li>Shopping cart & checkout</li>
-        <li>Payment integration</li>
-        <li>WordPress / Shopify options available</li>
-      </ul>
-    </div>
-
-    <!-- Custom Design & Branding -->
-    <div class="price-card">
-      <h3>Custom Design & Branding</h3>
-      <p>R3,500+</p>
-      <ul>
-        <li>Unique website layout</li>
-        <li>Logo & brand design</li>
-        <li>Responsive & modern UI</li>
-        <li>Extra features / custom requests</li>
-        <li>WordPress / Shopify integration</li>
-      </ul>
-    </div>
-
-    <!-- Website Maintenance -->
-    <div class="price-card">
-      <h3>Website Maintenance</h3>
-      <p>R1,500 / month</p>
-      <ul>
-        <li>Monthly updates</li>
-        <li>Security checks</li>
-        <li>Bug fixes</li>
-        <li>Content updates if needed</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
+</div>
 
 </body>
 </html>
