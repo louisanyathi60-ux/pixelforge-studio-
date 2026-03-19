@@ -1,145 +1,241 @@
-<!-- ================= INDEX.HTML ================= --><!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PixelForge Studio</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"><style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-body{background:#06000d;color:white;}
 
-header{
-display:flex;justify-content:space-between;align-items:center;
-padding:20px 60px;position:fixed;width:100%;z-index:1000;
-background:rgba(0,0,0,0.4);backdrop-filter:blur(10px);
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+
+body{
+  background:#070710;
+  color:white;
+  scroll-behavior:smooth;
 }
 
-.logo{font-size:20px;font-weight:bold;color:#d8a4ff;}
+/* SCROLL BAR */
+#progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:3px;
+  background:#7b2cff;
+  width:0%;
+  z-index:2000;
+}
 
-nav a{margin-left:30px;color:white;text-decoration:none;opacity:0.8;}
-nav a:hover{opacity:1;}
+/* NAVBAR */
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 40px;position:fixed;width:100%;z-index:1000;
+  background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);
+}
 
+.logo{font-size:20px;font-weight:bold;color:#c084ff;}
+
+nav a{
+  margin-left:25px;
+  color:white;
+  text-decoration:none;
+  opacity:0.8;
+  transition:0.3s;
+}
+
+nav a:hover{opacity:1;color:#c084ff;}
+
+/* HERO */
 .hero{
-height:100vh;display:flex;align-items:center;justify-content:space-between;
-padding:120px 60px;
-background:radial-gradient(circle at top,#2a0050,#06000d);
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:120px 40px;
+  background:linear-gradient(180deg,#120024,#070710);
 }
 
 .hero-text{max-width:500px;}
-.hero-text h1{font-size:55px;line-height:1.2;}
-.hero-text span{color:#d8a4ff;}
-.hero-text p{margin-top:20px;opacity:0.8;}
 
-.btn{
-display:inline-block;margin-top:30px;padding:15px 35px;
-background:linear-gradient(45deg,#a855f7,#d8a4ff);
-border-radius:30px;color:white;text-decoration:none;font-weight:bold;
+.hero-text h1{
+  font-size:52px;
 }
 
-.hero-img img{width:520px;border-radius:20px;box-shadow:0 0 60px rgba(168,85,247,0.6);} 
+.hero-text span{color:#c084ff;}
 
-.section{padding:100px 60px;text-align:center;}
+.hero-text p{
+  margin-top:15px;
+  color:#aaa;
+}
 
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 30px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:500;
+  transition:0.3s;
+}
+
+.primary{
+  background:#7b2cff;
+  box-shadow:0 0 15px rgba(123,44,255,0.5);
+}
+
+.primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 25px rgba(123,44,255,0.8);
+}
+
+.secondary{
+  border:1px solid #7b2cff;
+  margin-left:10px;
+}
+
+.secondary:hover{
+  background:#7b2cff;
+}
+
+/* HERO IMAGE */
+.hero-img img{
+  width:500px;
+  border-radius:15px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* SECTIONS */
+.section{
+  padding:80px 40px;
+  text-align:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.6s;
+}
+
+.section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* CARDS */
 .cards{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  margin-top:40px;
 }
 
 .card{
-padding:30px;border-radius:20px;background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-transition:0.3s;
+  padding:25px;
+  border-radius:15px;
+  background:#111122;
+  transition:0.3s;
 }
-.card:hover{transform:translateY(-10px);}
 
-footer{text-align:center;padding:30px;background:#040008;margin-top:40px;}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 20px rgba(123,44,255,0.4);
+}
 
+/* STICKY CTA */
+.cta-bar{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:#7b2cff;
+  text-align:center;
+  padding:10px;
+  font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  background:#05050a;
+  color:#777;
+}
+
+/* MOBILE */
 @media(max-width:768px){
-.hero{flex-direction:column;text-align:center;padding:100px 20px;}
-.hero-img img{width:100%;margin-top:30px;}
-.hero-text h1{font-size:35px;}
+  .hero{flex-direction:column;text-align:center;}
+  .hero-img img{width:100%;margin-top:30px;}
+  nav{display:none;}
 }
-</style></head>
-<body><header>
-<div class="logo">🚀 PIXELFORGE STUDIO</div>
-<nav>
-<a href="index.html">Home</a>
-<a href="projects.html">Projects</a>
-<a href="prices.html">Prices</a>
-<a href="contact.html">Contact</a>
-</nav>
-</header><section class="hero">
-<div class="hero-text">
-<h1>We design <span>high-end websites</span> that convert</h1>
-<p>We create premium websites for brands using Shopify, WordPress and custom code.</p>
-<a href="projects.html" class="btn">View Projects</a>
-</div>
-<div class="hero-img">
-<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
-</div>
-</section><section class="section">
-<h2>Why Choose PixelForge</h2>
-<div class="cards">
-<div class="card"><h3>Premium Design</h3><p>Modern, clean and high-end visuals.</p></div>
-<div class="card"><h3>Fast Delivery</h3><p>Quick turnaround without sacrificing quality.</p></div>
-<div class="card"><h3>Affordable</h3><p>High value websites at competitive prices.</p></div>
-</div>
-</section><footer>
-<p>© 2026 PixelForge Studio</p>
-</footer></body>
-</html><!-- ================= PROJECTS.HTML ================= --><!DOCTYPE html><html>
-<head>
-<title>Projects</title>
-<style>
-body{background:#06000d;color:white;font-family:sans-serif;text-align:center;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;padding:60px;}
-.card{padding:20px;background:#140022;border-radius:15px;}
-a{color:#d8a4ff;text-decoration:none;display:block;margin-top:10px;}
 </style>
 </head>
+
 <body>
-<h1>Projects</h1>
-<div class="grid">
-<div class="card">Salon Website<a href="https://louisanyathi60-ux.github.io/salon-demo/">View</a></div>
-<div class="card">Consulting Website<a href="https://louisanyathi60-ux.github.io/elite-consulting-demo/">View</a></div>
-<div class="card">Restaurant Website<a href="https://louisanyathi60-ux.github.io/golden-fork-restaurant-demo/">View</a></div>
-<div class="card">Festival Website<a href="https://louisanyathi60-ux.github.io/rootsfest-preview-/">View</a></div>
+
+<div id="progress"></div>
+
+<header>
+  <div class="logo">🚀 PixelForge</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="prices.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h1>We design <span>premium websites</span> that convert</h1>
+    <p>Modern, high-performing websites built to grow your business.</p>
+
+    <a href="projects.html" class="btn primary">View Work</a>
+    <a href="contact.html" class="btn secondary">Get Started</a>
+  </div>
+
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+  </div>
+</section>
+
+<section class="section">
+  <h2>Why Choose PixelForge</h2>
+
+  <div class="cards">
+    <div class="card">Premium Design</div>
+    <div class="card">Fast Delivery</div>
+    <div class="card">Built for Results</div>
+  </div>
+</section>
+
+<footer>
+  © 2026 PixelForge Studio
+</footer>
+
+<div class="cta-bar">
+  🚀 Affordable websites starting from R500 — Contact us today
 </div>
-</body>
-</html><!-- ================= PRICES.HTML ================= --><!DOCTYPE html><html>
-<head>
-<title>Prices</title>
-<style>
-body{background:#06000d;color:white;font-family:sans-serif;text-align:center;}
-.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;padding:60px;}
-.card{padding:30px;background:#140022;border-radius:20px;min-width:250px;}
-</style>
-</head>
-<body>
-<h1>Pricing</h1>
-<div class="cards">
-<div class="card">R500<br>1 Page Website</div>
-<div class="card">R1500<br>3 Pages</div>
-<div class="card">R3000+<br>Full Website</div>
-</div>
-</body>
-</html><!-- ================= CONTACT.HTML ================= --><!DOCTYPE html><html>
-<head>
-<title>Contact</title>
-<style>
-body{background:#06000d;color:white;font-family:sans-serif;text-align:center;}
-form{max-width:400px;margin:auto;padding:40px;}
-input,textarea{width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none;}
-button{padding:12px 25px;border:none;border-radius:20px;background:#a855f7;color:white;}
-</style>
-</head>
-<body>
-<h1>Contact</h1>
-<form>
-<input placeholder="Name">
-<input placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button>Send</button>
-</form>
-<p>Contact.pixelforgestudio@gmail.com</p>
-<p>0602950755</p>
+
+<script>
+
+/* SCROLL PROGRESS */
+window.onscroll = () => {
+  let scroll = document.documentElement.scrollTop;
+  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById("progress").style.width = (scroll/height)*100 + "%";
+};
+
+/* SCROLL ANIMATION */
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 50){
+      sec.classList.add('show');
+    }
+  });
+});
+
+</script>
+
 </body>
 </html>
