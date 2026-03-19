@@ -1,110 +1,53 @@
-<!-- ================= INDEX.HTML ================= --><!DOCTYPE html><html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PixelForge Studio</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
-body{margin:0;font-family:sans-serif;background:#070010;color:#fff;}
-header{display:flex;justify-content:space-between;padding:20px;background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);} 
-.logo{font-weight:bold;font-size:22px;color:#d8a4ff;text-shadow:0 0 10px #a855f7;} 
-nav a{margin:0 10px;color:white;text-decoration:none;} 
-.hero{height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:radial-gradient(circle,#2a0050,#070010);} 
-.hero h1{font-size:40px;text-shadow:0 0 20px #a855f7;} 
-.btn{background:#a855f7;padding:12px 25px;border:none;border-radius:25px;color:white;} 
-</style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#05000a;color:#fff;overflow-x:hidden;}/* BACKGROUND GLOW LAYERS */ body::before{ content:"";position:fixed;width:700px;height:700px; background:radial-gradient(circle,#a855f7,transparent); filter:blur(160px);top:-200px;left:50%;transform:translateX(-50%);z-index:-2; } body::after{ content:"";position:fixed;width:500px;height:500px; background:radial-gradient(circle,#7c3aed,transparent); filter:blur(140px);bottom:-150px;right:-100px;z-index:-2; }
+
+header{ display:flex;justify-content:space-between;align-items:center; padding:20px 40px;background:rgba(255,255,255,0.04); backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08); position:sticky;top:0;z-index:1000; }
+
+.logo{ font-size:22px;font-weight:bold;letter-spacing:1px; color:#e9c6ff;text-shadow:0 0 20px #a855f7; }
+
+nav a{ margin-left:25px;text-decoration:none;color:#fff;opacity:0.8;transition:0.3s; } nav a:hover{opacity:1;text-shadow:0 0 10px #a855f7;}
+
+/* HERO (MAIN FOCUS) */ .hero{ height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center; text-align:center;padding:20px;position:relative; }
+
+.hero h1{ font-size:56px;max-width:800px;line-height:1.2; text-shadow:0 0 40px rgba(168,85,247,0.9); }
+
+.hero p{margin-top:20px;opacity:0.8;font-size:18px;}
+
+/* FLOATING GLOW ORB */ .glow-orb{ position:absolute;width:300px;height:300px; background:radial-gradient(circle,#a855f7,transparent); filter:blur(100px);top:20%;left:10%;z-index:-1; }
+
+/* LAPTOP MOCKUP STYLE */ .laptop{ margin-top:40px;width:90%;max-width:600px; border-radius:20px; background:linear-gradient(145deg,#140022,#0b0015); padding:10px; box-shadow:0 0 60px rgba(168,85,247,0.7); }
+
+.laptop img{ width:100%;border-radius:15px; }
+
+/* BUTTON */ .btn{ margin-top:30px;padding:15px 35px;border:none;border-radius:30px; background:linear-gradient(45deg,#a855f7,#d8a4ff); color:white;font-weight:bold;cursor:pointer; box-shadow:0 0 30px rgba(168,85,247,0.9); transition:0.3s; }
+
+.btn:hover{ transform:scale(1.1); box-shadow:0 0 60px rgba(168,85,247,1); }
+
+footer{padding:20px;text-align:center;margin-top:40px;opacity:0.6;} </style>
+
 </head>
-<body>
-<header>
+<body><header>
 <div class="logo">PIXELFORGE STUDIO</div>
 <nav>
-<a href="index.html">Home</a>
-<a href="prices.html">Prices</a>
-<a href="projects.html">Projects</a>
-<a href="contact.html">Contact</a>
+<a href="#">Home</a>
+<a href="#">Prices</a>
+<a href="#">Projects</a>
+<a href="#">Contact</a>
 </nav>
-</header>
-<section class="hero">
-<h1>We Build Premium Websites</h1>
-<p>For brands, businesses & creatives</p>
-<button class="btn">View Prices</button>
-</section>
-</body>
-</html><!-- ================= PROJECTS.HTML ================= --><!DOCTYPE html><html>
-<head>
-<title>Projects</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<style>
-body{background:#070010;color:white;font-family:sans-serif;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:40px;}
-.card{background:rgba(255,255,255,0.05);padding:20px;border-radius:20px;text-align:center;box-shadow:0 0 20px rgba(168,85,247,0.4);} 
-.card img{width:100%;border-radius:15px;} 
-.btn{display:inline-block;margin-top:10px;background:#a855f7;padding:10px 20px;border-radius:20px;color:white;text-decoration:none;} 
-</style>
-</head>
-<body>
-<h1 style="text-align:center;">My Projects</h1>
-<div class="grid">
-<div class="card">
-<img src="https://via.placeholder.com/400x250">
-<h3>Salon Website</h3>
-<a class="btn" href="https://louisanyathi60-ux.github.io/salon-demo/">View</a>
-</div>
-<div class="card">
-<img src="https://via.placeholder.com/400x250">
-<h3>Consulting Website</h3>
-<a class="btn" href="https://louisanyathi60-ux.github.io/elite-consulting-demo/">View</a>
-</div>
-<div class="card">
-<img src="https://via.placeholder.com/400x250">
-<h3>Restaurant Website</h3>
-<a class="btn" href="https://louisanyathi60-ux.github.io/golden-fork-restaurant-demo/">View</a>
-</div>
-<div class="card">
-<img src="https://via.placeholder.com/400x250">
-<h3>Festival Website</h3>
-<a class="btn" href="https://louisanyathi60-ux.github.io/rootsfest-preview-/">View</a>
-</div>
-</div>
-</body>
-</html><!-- ================= PRICES.HTML ================= --><!DOCTYPE html><html>
-<head>
-<title>Prices</title>
-<style>
-body{background:#070010;color:white;font-family:sans-serif;text-align:center;} 
-.card{margin:20px;padding:20px;background:rgba(255,255,255,0.05);border-radius:20px;} 
-</style>
-</head>
-<body>
-<h1>Pricing</h1>
-<div class="card">R500 - 1 Page Website</div>
-<div class="card">R1500 - 3 Pages</div>
-<div class="card">R3000+ - Full Website</div>
-</body>
-</html><!-- ================= CONTACT.HTML ================= --><!DOCTYPE html><html>
-<head>
-<title>Contact</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<style>
-body{background:#070010;color:white;font-family:sans-serif;text-align:center;} 
-input,textarea{width:80%;padding:10px;margin:10px;border-radius:10px;border:none;} 
-.socials i{font-size:24px;margin:10px;color:#a855f7;} 
-</style>
-</head>
-<body>
-<h1>Contact</h1>
-<form>
-<input placeholder="Name">
-<input placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button>Send</button>
-</form>
-<p>Contact.pixelforgestudio@gmail.com</p>
-<p>0602950755</p>
-<div class="socials">
-<a href="https://www.facebook.com/profile.php?id=61587602161378"><i class="fab fa-facebook"></i></a>
-<a href="https://www.instagram.com/studio_pixelforge"><i class="fab fa-instagram"></i></a>
-<a href="https://wa.me/27602950755"><i class="fab fa-whatsapp"></i></a>
-</div>
-</body>
+</header><section class="hero">
+<div class="glow-orb"></div><h1>We design high-end websites that convert</h1>
+<p>Shopify • WordPress • Custom Code</p><div class="laptop">
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+</div><button class="btn">View Projects</button>
+
+</section><footer>
+<p>© 2026 PixelForge Studio</p>
+</footer></body>
 </html>
