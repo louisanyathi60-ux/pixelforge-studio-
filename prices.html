@@ -1,39 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Pricing</title>
+<title>Pricing - PixelForge</title>
 
 <style>
-body{background:#070710;color:white;font-family:sans-serif;text-align:center;}
+body{
+  background:#070710;
+  color:white;
+  font-family:sans-serif;
+  text-align:center;
+}
+
+h1{margin-top:40px;}
 
 .cards{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
   gap:25px;
-  padding:60px;
+  padding:50px;
 }
 
 .card{
-  padding:30px;
   background:#111122;
+  padding:30px;
   border-radius:15px;
-  width:260px;
+  width:280px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 25px rgba(123,44,255,0.5);
 }
 
 .price{
-  font-size:24px;
+  font-size:28px;
   color:#c084ff;
-  margin:10px 0;
+  margin:15px 0;
+}
+
+.badge{
+  background:#7b2cff;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:12px;
+  display:inline-block;
+  margin-bottom:10px;
+}
+
+ul{
+  text-align:left;
+  margin-top:10px;
+}
+
+ul li{
+  margin:8px 0;
+  color:#bbb;
 }
 
 button{
-  margin-top:15px;
-  padding:10px 20px;
+  margin-top:20px;
+  padding:12px;
+  width:100%;
   border:none;
+  border-radius:8px;
   background:#7b2cff;
   color:white;
-  border-radius:5px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.note{
+  margin-top:20px;
+  color:#aaa;
 }
 </style>
 </head>
@@ -41,37 +81,56 @@ button{
 <body>
 
 <h1>Pricing</h1>
+<p style="color:#aaa;">Simple, transparent pricing for growing businesses</p>
 
 <div class="cards">
 
 <div class="card">
 <h3>Starter</h3>
 <div class="price">R500</div>
-<p>1 Page Website</p>
-<p>Mobile Friendly</p>
-<p>Fast Delivery</p>
-<button>Choose Plan</button>
+<ul>
+<li>✔ 1 Page Website</li>
+<li>✔ Mobile Friendly</li>
+<li>✔ Modern Design</li>
+<li>✔ Fast Delivery</li>
+</ul>
+<button onclick="contact()">Get Started</button>
 </div>
 
 <div class="card">
+<div class="badge">Most Popular</div>
 <h3>Growth</h3>
 <div class="price">R1500</div>
-<p>Up to 4 Pages</p>
-<p>Modern Design</p>
-<p>SEO Setup</p>
-<button>Most Popular</button>
+<ul>
+<li>✔ Up to 4 Pages</li>
+<li>✔ Premium Design</li>
+<li>✔ SEO Setup</li>
+<li>✔ Mobile + Tablet</li>
+</ul>
+<button onclick="contact()">Choose Plan</button>
 </div>
 
 <div class="card">
 <h3>Pro</h3>
 <div class="price">R3000+</div>
-<p>Full Website</p>
-<p>E-commerce</p>
-<p>Custom Design</p>
-<button>Get Started</button>
+<ul>
+<li>✔ Full Website</li>
+<li>✔ Custom Design</li>
+<li>✔ E-commerce Ready</li>
+<li>✔ Priority Support</li>
+</ul>
+<button onclick="contact()">Get Quote</button>
 </div>
 
 </div>
+
+<p class="note">💡 Don't have a budget? Ask about partnership options.</p>
+
+<script>
+function contact(){
+  window.open("https://wa.me/27602950755?text=Hi, I'm interested in your website services");
+}
+</script>
 
 </body>
 </html>
