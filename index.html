@@ -14,7 +14,7 @@
 
 body{
   font-family:'Segoe UI',sans-serif;
-  background:#0b0b14;
+  background:linear-gradient(180deg,#0b0b14,#0f0f1f);
   color:white;
 }
 
@@ -25,7 +25,7 @@ body{
   padding:20px;
   position:fixed;
   width:100%;
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,0.5);
   backdrop-filter:blur(10px);
 }
 
@@ -58,19 +58,16 @@ body{
 
 /* HERO */
 .hero{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  padding:120px 40px;
-}
-
-.hero-text{
-  max-width:500px;
+  padding:120px 25px;
+  text-align:center;
 }
 
 .hero h1{
   font-size:42px;
+  line-height:1.2;
+  background:linear-gradient(90deg,#fff,#c084ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 .hero p{
@@ -78,39 +75,33 @@ body{
   color:#aaa;
 }
 
-/* BUTTON */
+/* BUTTONS */
 .btn{
   display:inline-block;
   margin-top:20px;
-  padding:12px 25px;
-  background:#7b2cff;
-  color:white;
+  padding:14px 28px;
+  border-radius:8px;
   text-decoration:none;
-  border-radius:6px;
+  font-weight:500;
 }
 
-/* LAPTOP */
+.primary{
+  background:#7b2cff;
+  box-shadow:0 0 20px rgba(123,44,255,0.6);
+}
+
+.secondary{
+  border:1px solid #7b2cff;
+  margin-left:10px;
+}
+
+/* LAPTOP CARD */
 .laptop{
-  width:350px;
-  background:#111;
-  border-radius:10px;
-  box-shadow:0 10px 40px rgba(0,0,0,0.5);
-}
-
-.screen{
-  padding:20px;
-  background:#1a163d;
-  border-radius:10px 10px 0 0;
-}
-
-.screen h3{margin-bottom:10px;}
-
-.screen p{font-size:14px;color:#ccc;}
-
-.base{
-  height:10px;
-  background:#222;
-  border-radius:0 0 10px 10px;
+  margin-top:40px;
+  background:linear-gradient(135deg,#1a163d,#111);
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.6);
 }
 
 /* SECTIONS */
@@ -119,16 +110,38 @@ section{
   text-align:center;
 }
 
-/* CARDS */
-.card{
+.section-dark{
   background:#111;
-  padding:20px;
-  margin:10px auto;
-  border-radius:10px;
-  max-width:300px;
 }
 
-/* CONTACT FORM */
+/* CARDS */
+.grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+}
+
+.card{
+  background:#161625;
+  padding:20px;
+  border-radius:10px;
+  width:260px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 20px rgba(123,44,255,0.4);
+}
+
+/* PORTFOLIO */
+.portfolio img{
+  width:100%;
+  border-radius:10px;
+}
+
+/* CONTACT */
 form{
   max-width:400px;
   margin:auto;
@@ -138,18 +151,17 @@ form{
 }
 
 input, textarea{
-  padding:10px;
-  border:none;
+  padding:12px;
   border-radius:5px;
+  border:none;
 }
 
 button{
   padding:12px;
+  border:none;
   background:#7b2cff;
   color:white;
-  border:none;
   border-radius:5px;
-  cursor:pointer;
 }
 
 /* SOCIALS */
@@ -161,8 +173,8 @@ button{
 }
 
 .socials a{
-  font-size:20px;
   color:white;
+  font-size:20px;
 }
 
 /* WHATSAPP */
@@ -173,7 +185,13 @@ button{
   background:#25D366;
   padding:15px;
   border-radius:50%;
-  color:white;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  color:#777;
 }
 
 </style>
@@ -188,6 +206,7 @@ button{
 
 <div class="nav-links" id="menu">
   <a href="#home">Home</a>
+  <a href="#portfolio">Portfolio</a>
   <a href="#pricing">Pricing</a>
   <a href="#contact">Contact</a>
 </div>
@@ -195,18 +214,17 @@ button{
 <!-- HERO -->
 <section class="hero" id="home">
 
-  <div class="hero-text">
-    <h1>Websites That Grow Your Business</h1>
-    <p>Professional, affordable, and built to bring you customers.</p>
-    <a href="https://wa.me/27XXXXXXXXX" class="btn">Get Started</a>
+  <h1>Websites That Grow Your Business</h1>
+  <p>Professional, modern, and built to convert visitors into customers.</p>
+
+  <div>
+    <a href="https://wa.me/27XXXXXXXXX" class="btn primary">Get Started</a>
+    <a href="#portfolio" class="btn secondary">View Work</a>
   </div>
 
   <div class="laptop">
-    <div class="screen">
-      <h3>PixelForge</h3>
-      <p>Modern website design for growing brands.</p>
-    </div>
-    <div class="base"></div>
+    <h3>PixelForge</h3>
+    <p>Modern website design for growing brands.</p>
   </div>
 
 </section>
@@ -215,18 +233,33 @@ button{
 <section>
   <h2>Why You Need a Website</h2>
 
-  <div class="card">🌍 Be found online</div>
-  <div class="card">💼 Look professional</div>
-  <div class="card">💰 Increase sales</div>
+  <div class="grid">
+    <div class="card">🌍 Be found online</div>
+    <div class="card">💼 Build trust</div>
+    <div class="card">💰 Increase sales</div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section-dark" id="portfolio">
+  <h2>Our Work</h2>
+
+  <div class="grid portfolio">
+    <img src="https://via.placeholder.com/300x200">
+    <img src="https://via.placeholder.com/300x200">
+    <img src="https://via.placeholder.com/300x200">
+  </div>
 </section>
 
 <!-- PRICING -->
 <section id="pricing">
   <h2>Packages</h2>
 
-  <div class="card">Starter – R500</div>
-  <div class="card">Growth – R1500</div>
-  <div class="card">Pro – R3000+</div>
+  <div class="grid">
+    <div class="card">Starter – R500</div>
+    <div class="card">Growth – R1500</div>
+    <div class="card">Pro – R3000+</div>
+  </div>
 </section>
 
 <!-- CONTACT -->
@@ -234,10 +267,9 @@ button{
   <h2>Contact Us</h2>
 
   <form onsubmit="sendMessage(event)">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="email" id="email" placeholder="Your Email" required>
-    <textarea id="message" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
+    <input type="text" id="name" placeholder="Name" required>
+    <textarea id="message" placeholder="Message" required></textarea>
+    <button type="submit">Send</button>
   </form>
 
   <div class="socials">
@@ -248,25 +280,25 @@ button{
 
 </section>
 
+<footer>
+PixelForge Studio — Built for Growth
+</footer>
+
 <a href="https://wa.me/27XXXXXXXXX" class="whatsapp">
   <i class="fab fa-whatsapp"></i>
 </a>
 
 <script>
-
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
 
 function sendMessage(e){
   e.preventDefault();
-
   let name = document.getElementById("name").value;
-  let message = document.getElementById("message").value;
-
-  window.open(`https://wa.me/27XXXXXXXXX?text=Hi, I'm ${name}. ${message}`);
+  let msg = document.getElementById("message").value;
+  window.open(`https://wa.me/27XXXXXXXXX?text=Hi, I'm ${name}. ${msg}`);
 }
-
 </script>
 
 </body>
