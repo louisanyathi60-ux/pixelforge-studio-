@@ -6,48 +6,58 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-body{background:#05000a;color:#fff;overflow-x:hidden;}/* BACKGROUND GLOW LAYERS */ body::before{ content:"";position:fixed;width:700px;height:700px; background:radial-gradient(circle,#a855f7,transparent); filter:blur(160px);top:-200px;left:50%;transform:translateX(-50%);z-index:-2; } body::after{ content:"";position:fixed;width:500px;height:500px; background:radial-gradient(circle,#7c3aed,transparent); filter:blur(140px);bottom:-150px;right:-100px;z-index:-2; }
+body{
+  background:#0b0014;
+  color:white;
+  overflow-x:hidden;
+}/* BACKGROUND */ .hero{ height:100vh; display:flex; align-items:center; justify-content:space-between; padding:60px; background:radial-gradient(circle at top left,#2a0050,#0b0014); }
 
-header{ display:flex;justify-content:space-between;align-items:center; padding:20px 40px;background:rgba(255,255,255,0.04); backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08); position:sticky;top:0;z-index:1000; }
+/* NAV */ header{ position:absolute; top:0; width:100%; display:flex; justify-content:space-between; align-items:center; padding:20px 60px; }
 
-.logo{ font-size:22px;font-weight:bold;letter-spacing:1px; color:#e9c6ff;text-shadow:0 0 20px #a855f7; }
+.logo{ font-size:22px; font-weight:bold; color:#d8a4ff; text-shadow:0 0 15px #a855f7; }
 
-nav a{ margin-left:25px;text-decoration:none;color:#fff;opacity:0.8;transition:0.3s; } nav a:hover{opacity:1;text-shadow:0 0 10px #a855f7;}
+nav a{ margin-left:30px; color:white; text-decoration:none; opacity:0.8; } nav a:hover{ opacity:1; text-shadow:0 0 10px #a855f7; }
 
-/* HERO (MAIN FOCUS) */ .hero{ height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center; text-align:center;padding:20px;position:relative; }
+.cta{ background:linear-gradient(45deg,#a855f7,#d8a4ff); padding:10px 20px; border-radius:20px; }
 
-.hero h1{ font-size:56px;max-width:800px;line-height:1.2; text-shadow:0 0 40px rgba(168,85,247,0.9); }
+/* LEFT TEXT */ .hero-text{ max-width:500px; }
 
-.hero p{margin-top:20px;opacity:0.8;font-size:18px;}
+.hero-text h1{ font-size:55px; line-height:1.2; }
 
-/* FLOATING GLOW ORB */ .glow-orb{ position:absolute;width:300px;height:300px; background:radial-gradient(circle,#a855f7,transparent); filter:blur(100px);top:20%;left:10%;z-index:-1; }
+.hero-text span{ color:#d8a4ff; }
 
-/* LAPTOP MOCKUP STYLE */ .laptop{ margin-top:40px;width:90%;max-width:600px; border-radius:20px; background:linear-gradient(145deg,#140022,#0b0015); padding:10px; box-shadow:0 0 60px rgba(168,85,247,0.7); }
+.hero-text p{ margin-top:20px; opacity:0.8; }
 
-.laptop img{ width:100%;border-radius:15px; }
+.btn{ margin-top:25px; display:inline-block; background:linear-gradient(45deg,#a855f7,#d8a4ff); padding:15px 30px; border-radius:30px; text-decoration:none; color:white; box-shadow:0 0 25px rgba(168,85,247,0.8); transition:0.3s; }
 
-/* BUTTON */ .btn{ margin-top:30px;padding:15px 35px;border:none;border-radius:30px; background:linear-gradient(45deg,#a855f7,#d8a4ff); color:white;font-weight:bold;cursor:pointer; box-shadow:0 0 30px rgba(168,85,247,0.9); transition:0.3s; }
+.btn:hover{ transform:scale(1.1); }
 
-.btn:hover{ transform:scale(1.1); box-shadow:0 0 60px rgba(168,85,247,1); }
+/* RIGHT MOCKUP */ .hero-image{ position:relative; }
 
-footer{padding:20px;text-align:center;margin-top:40px;opacity:0.6;} </style>
+.hero-image img{ width:500px; border-radius:20px; box-shadow:0 0 60px rgba(168,85,247,0.8); }
 
+/* FLOATING CARD */ .floating{ position:absolute; top:-40px; left:-60px; background:rgba(255,255,255,0.05); padding:15px; border-radius:15px; backdrop-filter:blur(15px); box-shadow:0 0 20px rgba(168,85,247,0.4); }
+
+/* ROCKET */ .rocket{ position:absolute; top:-60px; right:-40px; font-size:40px; color:#d8a4ff; text-shadow:0 0 20px #a855f7; }
+
+</style>
 </head>
 <body><header>
-<div class="logo">PIXELFORGE STUDIO</div>
+<div class="logo">🚀 PIXELFORGE STUDIO</div>
 <nav>
-<a href="#">Home</a>
-<a href="#">Prices</a>
-<a href="#">Projects</a>
-<a href="#">Contact</a>
+<a href="index.html">Home</a>
+<a href="projects.html">Projects</a>
+<a href="prices.html">Prices</a>
+<a href="contact.html">Contact</a>
+<a class="cta" href="contact.html">Get Started</a>
 </nav>
-</header><section class="hero">
-<div class="glow-orb"></div><h1>We design high-end websites that convert</h1>
-<p>Shopify • WordPress • Custom Code</p><div class="laptop">
+</header><section class="hero"><div class="hero-text">
+<h1>We design <span>high-end websites</span> that convert</h1>
+<p>Elevate your brand with visually stunning and high-performing websites built using Shopify, WordPress, and custom code.</p>
+<a href="projects.html" class="btn">View Projects</a>
+</div><div class="hero-image">
+<i class="fas fa-rocket rocket"></i>
+<div class="floating">UI Preview</div>
 <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
-</div><button class="btn">View Projects</button>
-
-</section><footer>
-<p>© 2026 PixelForge Studio</p>
-</footer></body>
+</div></section></body>
 </html>
